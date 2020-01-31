@@ -10,6 +10,9 @@
  *
  * @abstract
  */
+
+require_once('./libs/Smarty.class.php');
+
 abstract class View{
 
     /**
@@ -20,6 +23,16 @@ abstract class View{
      *
      * @return object
      */
+
+    private $smarty;
+
+    function __construct() {
+       $this->smarty = new Smarty();
+       $this->smarty->template_dir='./templates';
+       $this->smarty->compile_dir='tmp';
+       $this->smarty->cache_dir='cache';
+    }
+
     public function loadModel($name, $path='model/') {
         $path=$path.$name.'.php';
         $name=$name.'Model';
@@ -50,12 +63,10 @@ abstract class View{
      */
     public function render($name, $path='templates/') {
 
-       require_once('./libs/Smarty.class.php');
-       $smarty = new Smarty();
-       $smarty->template_dir='./templates';
-       $smarty->compile_dir='tmp';
-       $smarty->cache_dir='cache';
-       $smarty->display('testSmarty.view');
+        $this->smarty->assign('catsData2', array(9 => 'Tennis', 3 => 'Swimming', 8 => 'Coding'));
+        $this->smarty->assign('tytul','pierwsza zmienna value');
+        $this->smarty->display('testSmarty.php');
+
 
         $path=$path.$name.'.html.php';
         try {
@@ -82,6 +93,7 @@ abstract class View{
      * @return void
      */
     public function set($name, $value) {
+        $this->smarty->assign($name,$value);
         $this->$name=$value;
     }
     /**
