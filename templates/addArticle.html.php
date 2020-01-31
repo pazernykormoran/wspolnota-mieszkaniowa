@@ -15,4 +15,10 @@
     <input type="submit" value="Dodaj" />
 </form>
 
+        <?php foreach($this->get('catsData') as $cats) { 
+
+           echo  $cats['name'];
+           echo  $cats['id'] ; 
+        } ?>
+
 <?php include 'templates/footer.html.php'; ?>
