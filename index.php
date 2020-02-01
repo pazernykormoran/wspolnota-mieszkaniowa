@@ -3,15 +3,15 @@
  
 
 if(isset($_GET['task'])){
-	if($_GET['task']=='categories') {
-include 'controller/categories.php';
-    $ob = new CategoriesController();
-    $ob->call($_GET['action']);
-} else if($_GET['task']=='articles') {
-include 'controller/articles.php';
-    $ob = new ArticlesController();
-    $ob->call($_GET['action']);
-}
+    if($_GET['task']=='categories') {
+        include 'controller/categories.php';
+        $ob = new CategoriesController();
+        $ob->call($_GET['action']);
+    } else if($_GET['task']=='articles') {
+        include 'controller/articles.php';
+        $ob = new ArticlesController();
+        $ob->call($_GET['action']);
+    }
 }
  else {
 include 'controller/articles.php';

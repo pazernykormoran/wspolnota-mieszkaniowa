@@ -64,7 +64,7 @@ abstract class View{
     public function render($name, $path='templates/') {
 
         $this->smarty->assign('catsData2', array(9 => 'Tennis', 3 => 'Swimming', 8 => 'Coding'));
-        $this->smarty->assign('tytul','pierwsza zmienna value');
+        $this->smarty->assign('tytul','Smarty działa');
         $this->smarty->display('testSmarty.php');
 
 
