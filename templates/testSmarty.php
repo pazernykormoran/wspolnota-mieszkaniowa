@@ -3,9 +3,11 @@
 <ul>
 {if $catsData}
     {foreach from=$catsData  item=cats}
+        <li>    
         {foreach from=$cats key=k item=c}
-            <li>{$k}: {$c}</li>
+            {$k}: {$c}, 
         {/foreach}
+        </li>
     {/foreach}
 {/if}
 </ul>
