@@ -3,36 +3,29 @@ include 'controller/controller.php';
 
 class UsterkiController extends Controller{
 
-    public function call($name){
-        if($name=="index") $this->index();
-        if($name=="one") $this->one();
-        if($name=="add") $this->add();
-        if($name=="insert") $this->insert();
-        if($name=="delete") $this->delete();
+    public function zglosUsterke() {
+        $view=$this->loadView('usterki');
+        $view->zglosUsterke();
     }
-
-    public function index() {
-        $view=$this->loadView('logowanie');
-        $view->index();
+    public function zglosUsterkePerform() {
+        $model=$this->loadModel('usterki');
+        if($model->zglosUsterkePerform($_POST)){
+            $this->redirect('?task=aplikacja&action=dashboard&info=Usterka została pomyślnie zgłoszona');
+        }else{
+            $this->redirect('?task=aplikacja&action=dashboard&info=Błąd, nie udało się zgłosić usterki');
+        }
     }
-    public function logowanieValidate() {
-        $model=$this->loadModel('logowanie');
-        $model->logowanieValidate($_POST);
-        $this->redirect('?task=aplikacja&action=dashboard');
+    public function przegladajUsterki() {
+        $view=$this->loadView('usterki');
+        $view->przegladajUsterki();
     }
-    public function add() {
-        $view=$this->loadView('articles');
-        $view->add();
-    }
-    public function insert() {
-        $model=$this->loadModel('articles');
-        $model->insert($_POST);
-        $this->redirect('?task=articles&action=index');
-    }
-    public function delete() {
-        $model=$this->loadModel('articles');
-        $model->delete($_GET['id']);
-        $this->redirect('?task=articles&action=index');
+    public function szczegolyUsterki() {
+        $view=$this->loadView('usterki');
+        if(isset($_GET['idUsterki'])){
+            $view->szczegolyUsterki($_GET['idUsterki']);
+        }else{
+            $this->redirect('?task=usterki&action=przegladajUsterki&info=Błąd, nie ma takiej usterki');
+        }
     }
 }
 ?>

@@ -27,8 +27,9 @@ class AplikacjaController extends Controller{
     }
     public function zapomnialemHaslaValidate() {
         $model=$this->loadModel('aplikacja');
-        if($model->zapomnialemHaslaValidate($_POST)){
-            $this->redirect('?task=aplikacja&action=pytaniePomocnicze');
+        $pytaniePomocnicze=$model->zapomnialemHaslaValidate($_POST);
+        if(isset($pytaniePomocnicze)){
+            $this->redirect('?task=aplikacja&action=pytaniePomocnicze&'."pytaniePomocnicze=".$pytaniePomocnicze);
         }else{
             //dodaj coś do get. //TODO
             $this->redirect('?task=aplikacja&action=zapomnialemHasla');
