@@ -1,4 +1,4 @@
-{$tytul}
+<!-- {$tytul}
 
 <ul>
 {if $catsData}
@@ -10,5 +10,8 @@
         </li>
     {/foreach}
 {/if}
-</ul>
-
+</ul> -->
+<hr>
+smarty view+
+{$info}
+<hr>

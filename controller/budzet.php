@@ -1,21 +1,24 @@
 <?php
-/**
- * @author Łukasz Socha <kontakt@lukasz-socha.pl>
- * @version: 1.0
- * @license http://www.gnu.org/copyleft/lesser.html
- */
-
 include 'controller/controller.php';
 
-class ArticlesController extends Controller{
+class BudzetController extends Controller{
+
+    public function call($name){
+        if($name=="index") $this->index();
+        if($name=="one") $this->one();
+        if($name=="add") $this->add();
+        if($name=="insert") $this->insert();
+        if($name=="delete") $this->delete();
+    }
 
     public function index() {
-        $view=$this->loadView('articles');
+        $view=$this->loadView('logowanie');
         $view->index();
     }
-    public function one() {
-        $view=$this->loadView('articles');
-        $view->one();
+    public function logowanieValidate() {
+        $model=$this->loadModel('logowanie');
+        $model->logowanieValidate($_POST);
+        $this->redirect('?task=aplikacja&action=dashboard');
     }
     public function add() {
         $view=$this->loadView('articles');
