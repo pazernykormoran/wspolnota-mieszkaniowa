@@ -1,9 +1,4 @@
 <?php
-/**
- * @author Łukasz Socha <kontakt@lukasz-socha.pl>
- * @version: 1.0
- * @license http://www.gnu.org/copyleft/lesser.html
- */
 
 /**
  * This class includes methods for views.
@@ -31,6 +26,19 @@ abstract class View{
        $this->smarty->template_dir='./templates';
        $this->smarty->compile_dir='tmp';
        $this->smarty->cache_dir='cache';
+    }
+
+    protected function setNecessery(){
+        if(isset($_GET['info'])){
+            $this->set('info', $_GET['info']);
+        }else{
+            $this->set('info', '');
+        }
+        if(isset($_GET['error'])){
+            $this->set('error', $_GET['error']);
+        }else{
+            $this->set('error', '');
+        }
     }
 
     public function loadModel($name, $path='model/') {
@@ -62,12 +70,6 @@ abstract class View{
      * @return void
      */
     public function render($name, $path='templates/') {
-
-        $this->smarty->assign('catsData2', array(9 => 'Tennis', 3 => 'Swimming', 8 => 'Coding'));
-        $this->smarty->assign('tytul','Smarty działa');
-        $this->smarty->display('testSmarty.php');
-
-
         $path=$path.$name.'.html.php';
         try {
             if(is_file($path)) {
@@ -83,6 +85,8 @@ abstract class View{
                 Trace: '.$e->getTraceAsString();
             exit;
         }
+        echo "<hr>SMARTY VIEW:<hr>";
+        $this->smarty->display($path);
     }
     /**
      * It sets data.

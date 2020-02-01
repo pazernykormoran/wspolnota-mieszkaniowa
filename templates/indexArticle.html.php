@@ -18,6 +18,7 @@
         <td><?= $articles['autor']; ?></td>
         <td><?= $articles['name']; ?></td>
         <td><a href="?task=articles&amp;action=delete&amp;id=<?= $articles['id']; ?>">usuń</a></td>
+        <td><a href="?task=aplikacja&amp;action=dashboard&amp;info=siematuinfo">przekieruj zi infem</a></td>
     </tr>
     <?php } ?>
 </table>
