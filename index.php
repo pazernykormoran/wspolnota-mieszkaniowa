@@ -23,11 +23,11 @@ if(isset($_GET['task'])){
         }
         callAction($ob);
     }else if($_GET['task']=='budzet') {
+        include 'controller/budzet.php';
+        $ob = new BudzetController();
         if(!$ob->sprawdzCzyZalogowany()){
             $this->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
         }
-        include 'controller/budzet.php';
-        $ob = new BudzetController();
         callAction($ob);
     }
 }
