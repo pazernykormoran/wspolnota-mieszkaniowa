@@ -13,14 +13,19 @@ class UsterkiModel extends Model{
 
     }
     public function pobierzUsterki() {
-        //pobierz id wspolnoty z sesji użytkownik->wspolnowaMieszkaniowa->id;
+        //pobierz id wspolnoty z sesji 
+        if(isset($_SESSION['idWspolnoty'])){
+
+        }
         //pobiera z bazy liste zgloszonych usterek dla danej wspolnoty
         
         //zwraca liste pobranych usterek klasy Usterka
     }
     public function pobierzSzczegolyUsterki($id) {
         //pobiera z bazy usterke dla id wspolnoty mieszkaniowej oraz id usterki z parametru funkcji.
-            
+        if(isset($_SESSION['idWspolnoty'])&&isset($id)){
+
+        }
         //zwraca usterke klasy Usterka
     }
 

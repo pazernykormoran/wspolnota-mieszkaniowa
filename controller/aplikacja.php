@@ -3,6 +3,9 @@ include 'controller/controller.php';
 
 class AplikacjaController extends Controller{
     public function dashboard() {
+        if(!$this->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
+        }
         $view=$this->loadView('aplikacja');
         $view->dashboard();
     }
@@ -18,7 +21,7 @@ class AplikacjaController extends Controller{
             $this->redirect('?task=aplikacja&action=dashboard');
         }else{
             // dodaj coś do get // TODO
-            $this->redirect('?task=aplikacja&action=logowanie');
+            $this->redirect('?task=aplikacja&action=logowanie&error=Złe dane logowania');
         }
     }
     public function zapomnialemHasla() {
@@ -31,8 +34,7 @@ class AplikacjaController extends Controller{
         if(isset($pytaniePomocnicze)){
             $this->redirect('?task=aplikacja&action=pytaniePomocnicze&'."pytaniePomocnicze=".$pytaniePomocnicze);
         }else{
-            //dodaj coś do get. //TODO
-            $this->redirect('?task=aplikacja&action=zapomnialemHasla');
+            $this->redirect('?task=aplikacja&action=zapomnialemHasla&error=Zły adres e-mail');
         } 
     }
     public function pytaniePomocnicze() {
@@ -46,17 +48,20 @@ class AplikacjaController extends Controller{
     public function pytaniePomocniczeValidate() {
         $model=$this->loadModel('aplikacja');
         if($model->pytaniePomocniczeValidate($_POST)){
-            //zapisz do sesji, że można zmienić hasło, TODO
+            $_SESSION['moznaZmienicHaslo']=true;
             $this->redirect('?task=aplikacja&action=zmienHaslo');
         }else{
-            //dodaj coś do get ??TODO
-            $this->redirect('?task=aplikacja&action=pytaniePomocnicze');
+            $this->redirect('?task=aplikacja&action=pytaniePomocnicze&error=Zła odpowiedź');
         }
     }
     public function zmienHaslo() {
-        //sprawdź czy użytkownik jest zalogowany albo czy ustawione jest w sesji, że można zmienić hasło. jeśli nie to powrót na stonę logowanie: TODO
-        $view=$this->loadView('aplikacja');
-        $view->zmienHaslo();
+        if((isset($_SESSION['uzytkownik'])&&isset($_SESSION['idWspolnoty'])) || isset($_SESSION['moznaZmienicHaslo'])){
+            $view=$this->loadView('aplikacja');
+            $view->zmienHaslo();
+        }else{
+            $this->redirect('?task=aplikacja&action=logowanie&error=Nie można zmienić hasła');
+        }
+
     }
     public function zmienHasloPerform() {
         $model=$this->loadModel('aplikacja');

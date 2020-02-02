@@ -78,4 +78,12 @@ abstract class Controller{
         }
         return $ob;
     }
+
+    public function sprawdzCzyZalogowany(){
+        if(isset($_SESSION['uzytkownik'])&&isset($_SESSION['idWspolnoty'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

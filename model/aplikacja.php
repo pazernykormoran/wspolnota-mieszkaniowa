@@ -9,12 +9,18 @@ class AplikacjaModel extends Model{
     public function logowanieValidate($postArray) {
         //wyciagnij użytkownika i zapisz w sesji, z sesji pobierz również wspolnote mieszkaniową dla tego użytkownika i zapisz ją w użytkowniku. 
             //postArray ma "login", "haslo"
+       //zwraca bool czy używkotnik został zapisany
+       
+            if(isset($postArray['login'])&&isset($postArray['haslo'])){
+            //wyciagnij content z bazy
+        }
 
-        //zwraca bool czy używkotnik został zapisany
+        //mok:
         $uzytkownik=new Uzytkownik('id','login','imie','nazwisko','pytPomocnicze','rola','stanKonta','wspolnotaMieszkaniowa');
         
         if(isset($uzytkownik)){
-            $_SESSION["uzytkownik"]=$uzytkownik;
+            $_SESSION['uzytkownik']=$uzytkownik;
+            $_SESSION['idWspolnoty']=1;
             return true;
         }else{
             return false;
