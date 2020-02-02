@@ -122,7 +122,7 @@
           </div>
       
           <div style="padding-top: 30px;">
-            <button type="button"  onclick="location.href = 'moje-zamowienia.php';" class="btn btn-secondary ">Powrót</button>
+          <button type="button"  onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
         </div>
 
         </div>

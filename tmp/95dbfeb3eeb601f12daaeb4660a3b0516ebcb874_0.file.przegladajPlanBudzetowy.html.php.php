@@ -1,4 +1,30 @@
- <!DOCTYPE HTML>
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:35:00
+  from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\przegladajPlanBudzetowy.html.php' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5e36ec24e9b621_47376051',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '95dbfeb3eeb601f12daaeb4660a3b0516ebcb874' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\budzet\\przegladajPlanBudzetowy.html.php',
+      1 => 1580657696,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:includes/komunikaty.html' => 1,
+    'file:includes/menuUzytkownik.html' => 1,
+    'file:includes/uzytkownikWspolnoty.html' => 1,
+  ),
+),false)) {
+function content_5e36ec24e9b621_47376051 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE HTML>
 <html lang="pl">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -10,15 +36,17 @@
 <body>
 
 <div>
-{include file='includes/komunikaty.html'}
+<?php $_smarty_tpl->_subTemplateRender('file:includes/komunikaty.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </div>
 
 <div class="container" style="width: 30%; position: absolute; left: 0px;">
-{include file='includes/menuUzytkownik.html'}
-{include file='includes/uzytkownikWspolnoty.html'}
+<?php $_smarty_tpl->_subTemplateRender('file:includes/menuUzytkownik.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+$_smarty_tpl->_subTemplateRender('file:includes/uzytkownikWspolnoty.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </div>
 
-    <div class="container" style="width: 70%; position: absolute; left: 300px;">
+    <div class="container"  style="width: 70%; position: absolute; left: 300px;">
         <div class="row">
           <div class="col">
 
@@ -112,7 +140,7 @@
         </div>
 
         <div style=" position: absolute; right: 100px;">
-    
+      
 
           <div class="form-group row">
             <label class="col-4 col-form-label">Twój czynsz</label>
@@ -137,4 +165,5 @@
 
 
 </body>
-</html>
+</html><?php }
+}
