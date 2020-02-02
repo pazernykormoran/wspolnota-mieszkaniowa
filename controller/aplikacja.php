@@ -36,8 +36,12 @@ class AplikacjaController extends Controller{
         } 
     }
     public function pytaniePomocnicze() {
-        $view=$this->loadView('aplikacja');
-        $view->pytaniePomocnicze();
+        if(isset($_GET['pytaniePomocnicze'])){
+            $view=$this->loadView('aplikacja');
+            $view->pytaniePomocnicze($_GET['pytaniePomocnicze']);
+        }else{
+            $this->redirect('?task=aplikacja&action=logowanie&'."error="."Nie ma takiego użytkownika");
+        }
     }
     public function pytaniePomocniczeValidate() {
         $model=$this->loadModel('aplikacja');
@@ -60,7 +64,7 @@ class AplikacjaController extends Controller{
             $this->redirect('?task=aplikacja&action=logowanie');
         }else{
             //dodaj cos do GET // TODO
-            $this->redirect('?task=aplikacja&action=zmienHaslo');
+            $this->redirect('?task=aplikacja&action=zmienHaslo?error=Nie udało się zmienić hasła');
         }
     }
 }

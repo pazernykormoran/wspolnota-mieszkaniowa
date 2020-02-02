@@ -315,22 +315,24 @@ input[type=password]:placeholder {
     <div class="fadeIn first">
     </div>
     <h2>Odpowiedz na pytanie pomocnicze:</h2>
-    <input type="text" class="fadeIn second" name="helpQuestion" value="Ulubiony kolor"readonly>
-    <form action="PasswordChange.html" method="post">
+    <input type="text" class="fadeIn second" name="helpQuestion" value="{$pytaniePomocnicze}"readonly>
+    <form action="?task=aplikacja&action=pytaniePomocniczeValidate" method="post">
   
       <h2>Twoja odpowiedź:</h2>
       <input type="text"  class="fadeIn second" name="answer" placeholder="Podaj odpowiedź">
       
-      <div class="alert alert-danger">
-        <strong>Błąd!</strong> Podano nieprawidłowe dane.
-      </div>
-     
-      <input onclick="location.href='PasswordChange.html';"  type="submit" class="fadeIn fourth" value="Wyślij">
 
-      
+        {if isset($error) && $error != ""}
+          <div class="alert alert-danger">
+            <strong>Błąd!</strong> {$error}
+          </div>
+        {/if}
+
+        <input  type="submit" class="fadeIn fourth" value="Wyślij">
       <br>
-      <a href="index.html">Wróc do logowania</a>
+      
     </form>
+    <a href="?task=aplikacja&action=logowanie">Wróc do logowania</a>
 
 
   </div>

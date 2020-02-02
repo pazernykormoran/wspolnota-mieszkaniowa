@@ -318,19 +318,22 @@ input[type=password]:placeholder {
     </div>
 
     <!-- Login Form -->
-    <form action="zaloguj.php" method="post">
+    <form action="?task=aplikacja&action=logowanieValidate" method="post">
       <h2>Logowanie</h2>
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
       <input type="password" id="password" class="fadeIn third" name="haslo" placeholder="haslo">
 
-      <div class="alert alert-danger">
-        <strong>Błąd!</strong> Podano nieprawidłowe dane.
-      </div>
+      {if isset($error) && $error != ""}
+          <div class="alert alert-danger">
+            <strong>Błąd!</strong> {$error}
+          </div>
+        {/if}
      
       <input type="submit" class="fadeIn fourth" value="Zaloguj">
       <br>
-      <a href="ForgottenPassword.html">Zapomniałeś hasła?</a>
+     
     </form>
+    <a href="?task=aplikacja&action=zapomnialemHasla">Zapomniałeś hasła?</a>
 
 
   </div>
