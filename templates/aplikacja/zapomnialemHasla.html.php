@@ -318,19 +318,21 @@ input[type=password]:placeholder {
     </div>
 
     <!-- Login Form -->
-    <form action="helpQuestion.html" method="post">
+    <form action="?task=aplikacja&action=zapomnialemHaslaValidate" method="post">
       <h2>Zapomniałeś hasła? Podaj email lub nazwę użytkownika</h2>
       <input type="text" id="login" class="fadeIn second" name="login/email" placeholder="Email lub nazwa użytkownika">
 
-      <div class="alert alert-danger">
-        <strong>Błąd!</strong> Podano nieprawidłowe dane.
-      </div>
+      {if isset($error) && $error != ""}
+          <div class="alert alert-danger">
+            <strong>Błąd!</strong> {$error}
+          </div>
+        {/if}
      
-      <input onclick="location.href='helpQuestion.html';"  type="submit" class="fadeIn fourth" value="Wyślij">
+      <input  type="submit" class="fadeIn fourth" value="Wyślij">
 
-      
+      <!-- <button class=" fadeIn fourth" >Wyślij</button> -->
       <br>
-      <a href="index.html">Wróc do logowania</a>
+      <a href="?task=aplikacja&action=logowanie">Wróc do logowania</a>
     </form>
 
 

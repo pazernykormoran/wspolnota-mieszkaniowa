@@ -11,10 +11,6 @@
 
 
 
-
-
-
-
     <div class="container" style="width: 70%; position: absolute; right: 0px;">
         <div class="row">
           <div class="col">

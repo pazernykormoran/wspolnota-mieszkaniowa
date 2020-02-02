@@ -36,8 +36,9 @@ if(isset($_GET['task'])){
     }
 }
  else {
-include 'controller/articles.php';
-    $ob = new ArticlesController();
-    $ob->index();
+include 'controller/aplikacja.php';
+    $ob = new AplikacjaController();
+    $_GET['action']='logowanie';
+    callAction($ob);
 }
 ?>

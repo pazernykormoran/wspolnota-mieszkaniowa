@@ -315,7 +315,7 @@ input[type=password]:placeholder {
     <div class="fadeIn first">
     </div>
 
-    <form action="PasswordChange.html" method="post">
+    <form action="?task=aplikacja&action=zmienHasloPerform" method="post">
   
       <h2>Podaj nowe hasło:</h2>
       <input type="password" id="password" class="fadeIn third" name="haslo" placeholder="Wpisz nowe hasło">
@@ -323,16 +323,18 @@ input[type=password]:placeholder {
       <h2>Powtórz hasło:</h2>
       <input type="password" id="password" class="fadeIn third" name="haslo" placeholder="Wpisz stare hasło">
       
-      <div class="alert alert-danger">
-        <strong>Błąd!</strong> Podano nieprawidłowe dane.
-      </div>
+      {if isset($error) && $error != ""}
+          <div class="alert alert-danger">
+            <strong>Błąd!</strong> {$error}
+          </div>
+        {/if}
      
-      <input onclick="location.href='PasswordChange.html';"  type="submit" class="fadeIn fourth" value="Zmień hasło">
-
+        <input  type="submit" class="fadeIn fourth" value="Wyślij">
       
       <br>
-      <a href="index.html">Wróc do logowania</a>
+      
     </form>
+    <a href="?task=aplikacja&action=logowanie">Wróc do logowania</a>
 
 
   </div>

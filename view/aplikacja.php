@@ -17,9 +17,10 @@ class AplikacjaView extends View{
         $this->setNecessery();
         $this->render('aplikacja/zapomnialemHasla');
     }
-    public function pytaniePomocnicze() {
+    public function pytaniePomocnicze($pytaniePomocnicze) {
         $this->setNecessery();
         // pobierz pytanie pomocnicze z modelu oraz set pytanie pomocnicze TODO
+        $this->set('pytaniePomocnicze',$pytaniePomocnicze);
         $this->render('aplikacja/pytaniePomocnicze');
     }
     public function zmienHaslo(){
