@@ -4,17 +4,19 @@ class Uzytkownik{
     private $login;
     private $imie; 
     private $nazwisko; 
-    private $pytPomocnicze; 
+    private $pytaniePomocnicze;
+    private $odpowiedzPomocnicza;  
     private $rola;
     private $stanKonta;
     private $wspolnotaMieszkaniowa;
 
-    function __construct($id, $login, $imie, $nazwisko, $pytPomocnicze, $rola, $stanKonta, $wspolnotaMieszkaniowa) {
+    function __construct($id, $login, $imie, $nazwisko, $pytaniePomocnicze,$odpowiedzPomocnicza, $rola, $stanKonta, $wspolnotaMieszkaniowa) {
         $this->id=$id;
         $this->login=$login;
         $this->imie=$imie;
         $this->nazwisko=$nazwisko;
-        $this->pytPomocnicze=$pytPomocnicze;
+        $this->pytaniePomocnicze=$pytaniePomocnicze;
+        $this->odpowiedzPomocnicza=$odpowiedzPomocnicza;
         $this->rola=$rola;
         $this->stanKonta=$stanKonta;
         $this->wspolnotaMieszkaniowa=$wspolnotaMieszkaniowa;
