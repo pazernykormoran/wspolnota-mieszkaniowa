@@ -86,6 +86,7 @@ abstract class View{
         //     exit;
         // }
         // echo "<hr>SMARTY VIEW:<hr>";
+        
         $this->smarty->display($path);
     }
     /**

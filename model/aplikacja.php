@@ -27,7 +27,7 @@ class AplikacjaModel extends Model{
         //jeśli podany email istnieje to zapisz go do sesji pod nazwą "email" oraz wyciagnij pytanie pomocnicze dla tego emaila
     
         //zwraca pytanie pomocnicze lub null
-        if(isset($_POST['login/email'])){
+        if(isset($postArray['login/email'])){
             return "siema tu pytanie pomocnicze mordo";
         }
         else{
@@ -39,14 +39,30 @@ class AplikacjaModel extends Model{
             //postarray ma "odpowiedz"
             
         //zwraca bool
-        return true;
+
+        if(isset($postArray['answer'])){
+            //sprawdz czy dobra answer
+            return true;
+        }
+        else{
+            return false;
+        }
+
+        
     }
     public function zmienHasloPerform($postArray) {
         //zapisz dane do bazy. (email pobierz z sesji jako email zapisany w funkcji zapomniałęm hasło albo po prostu z użytkownika zapisanego w sesji jeśli jest zalogowany)
             //postarray ma "haslo"
 
         //zwraca bool czy udało się zapisać
-        return true;
+
+        if(isset($postArray['haslo1']) && isset($postArray['haslo2'])){
+            //sprawdz czy dobra answer
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 ?>
