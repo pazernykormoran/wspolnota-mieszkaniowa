@@ -2,20 +2,21 @@
 
 
 include 'model/model.php';
+include 'classes/adres.php';
 
 class UsterkiModel extends Model{
 
     public function zglosUsterkePerform($postArray) {
          
 
-        if(isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['login'] &&  $_SESSION['imie']) ){
+      //  if(isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['login'] &&  $_SESSION['imie']) ){
             //wyciagnij content z bazy
 
-            ($id,$date,$stanRealizacji,$temat,$opis,$budynek, $wspolnotaMieszkaniowa) 
-        }
-        else{
+          //  ($id,$date,$stanRealizacji,$temat,$opis,$budynek, $wspolnotaMieszkaniowa) 
+      //  }
+      //  else{
 
-        }
+     //   }
 
 
         //wyciagnij id uzytkownika z sesji i zapisz usterke  
@@ -25,14 +26,33 @@ class UsterkiModel extends Model{
 
     }
 
-    public function insert($data) {
-        $ins=$this->pdo->prepare('INSERT INTO articles (title, content, date_add, autor, id_categories) VALUES (
-            :title, :content, :date_add, :autor, :id_categories)');
-        $ins->bindValue(':title', $data['title'], PDO::PARAM_STR);
-        $ins->bindValue(':content', $data['content'], PDO::PARAM_STR);
-        $ins->bindValue(':date_add', $data['date_add'], PDO::PARAM_STR);
-        $ins->bindValue(':autor', $data['author'], PDO::PARAM_STR);
-        $ins->bindValue(':id_categories', $data['cat'], PDO::PARAM_INT);
+    public function pobierzAdresyBudynkowWspolnoty($id) {
+        $query="SELECT *
+        From adresy
+        Where idZewnetrzne = 1";
+            
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $data[]=new Adres(null, $row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"], $row["idZewnetrzne"]);
+
+        }
+        foreach ($data as $key => $val) {
+            echo $val["kodPocztowy"];
+         }
+
+        $select->closeCursor();
+
+        return $data;
+    }
+
+   public function insert($data) {
+        $ins=$this->pdo->prepare('INSERT INTO articles (idUżytkownika, idBudynku, dataZgłoszenia, temat, opis,stan) VALUES (
+            :uzytkownik, :budynek, :dataZgloszenia, :opis, :stanRealizacji)');
+        $ins->bindValue(':uzytkownik', '1', PDO::PARAM_STR);
+        $ins->bindValue(':budynek', $data['uzytkownik'], PDO::PARAM_STR);
+        $ins->bindValue(':dataZgloszenia', $data['budynek'], PDO::PARAM_STR);
+        $ins->bindValue(':opis', $data['date_add'], PDO::PARAM_STR);
+        $ins->bindValue(':stanRealizacji', $data['author'], PDO::PARAM_STR);
         $ins->execute();
     }
     public function pobierzUsterki() {

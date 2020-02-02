@@ -1,6 +1,6 @@
 <?php
 $host='localhost';
-$dbase='mvc-php-old';
+$dbase='wspolnota';
 $user='root';
 $pass='';
 ?>

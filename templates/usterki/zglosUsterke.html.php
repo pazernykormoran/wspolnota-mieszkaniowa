@@ -10,6 +10,11 @@
 
 <body>
 
+{foreach from=$adresy item=foo}
+    <li>{$foo}</li>
+{/foreach}
+
+
   <div>
     {include file='includes/komunikaty.html'}
   </div>

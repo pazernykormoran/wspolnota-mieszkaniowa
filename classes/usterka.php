@@ -1,7 +1,7 @@
 <?php 
 class Usterka{
     private $id;
-    private $date;
+    private $dataZgloszenia;
     private $stanRealizacji;
     private $temat;
     private $opis;
@@ -9,9 +9,9 @@ class Usterka{
     private $uzytkownik;
     private $wspolnotaMieszkaniowa;
 
-    function __construct($id,$date,$stanRealizacji,$temat,$opis,$budynek,$uzytkownik, $wspolnotaMieszkaniowa) {
+    function __construct($id,$dataZgloszenia,$stanRealizacji,$temat,$opis,$budynek,$uzytkownik, $wspolnotaMieszkaniowa) {
         $this->id=$id;
-        $this->date=$date;
+        $this->dataZgloszenia=$dataZgloszenia;
         $this->stanRealizacji=$stanRealizacji;
         $this->temat=$temat;
         $this->opis=$opis;
