@@ -6,7 +6,7 @@ include 'model/model.php';
 class AplikacjaModel extends Model{
 
     public function logowanieValidate($postArray) {
-        //wyciagnij użytkownika i zapisz w sesji   
+        //wyciagnij użytkownika i zapisz w sesji, z sesji pobierz również wspolnote mieszkaniową dla tego użytkownika i zapisz ją w użytkowniku. 
             //postArray ma "login", "haslo"
 
         //zwraca bool czy używkotnik został zapisany
@@ -29,7 +29,7 @@ class AplikacjaModel extends Model{
 
     }
     public function zmienHasloPerform($postArray) {
-        //zapisz dane do bazy. (email pobierz z sesji)
+        //zapisz dane do bazy. (email pobierz z sesji jako email zapisany w funkcji zapomniałęm hasło albo po prostu z użytkownika zapisanego w sesji jeśli jest zalogowany)
             //postarray ma "haslo"
 
         //zwraca bool czy udało się zapisać

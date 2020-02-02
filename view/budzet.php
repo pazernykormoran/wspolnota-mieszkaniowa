@@ -8,20 +8,39 @@
 include 'view/view.php';
 
 class BudzetView extends View{
-    public function  index() {
-        $art=$this->loadModel('articles');
-        $this->set('articles', $art->getAll());
-        $this->render('indexArticle');
+    public function  przegladajBudzet() {
+        $this->setNecessery();
+        $usterkiModel= $this->loadModel('budzet');
+
+        //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
+
+        $this->render('budzet/przegladajBudzet');
     }
-    public function  one() {
-        $art=$this->loadModel('articles');
-        $this->set('articles', $art->getOne($_GET['id']));
-        $this->render('oneArticle');
+
+    public function elementBudzetu($id) {
+        $this->setNecessery();
+        $usterkiModel=$this->loadModel('budzet');
+
+        //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane.
+
+        $this->render('budzet/elementBudzetu');
     }
-    public function add() {
-        $cat=$this->loadModel('categories');
-        $this->set('catsData', $cat->getAll());
-        $this->render('addArticle');
+    public function  przegladajPlanBudzetowy() {
+        $this->setNecessery();
+        $usterkiModel= $this->loadModel('budzet');
+
+        //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
+
+        $this->render('budzet/przegladajPlanBudzetowy');
+    }
+
+    public function elementPlanuBudzetowego($id) {
+        $this->setNecessery();
+        $usterkiModel=$this->loadModel('budzet');
+        
+        //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
+
+        $this->render('budzet/elementPlanuBudzetowego');
     }
 }
 ?>

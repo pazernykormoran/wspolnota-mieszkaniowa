@@ -6,7 +6,7 @@ class AplikacjaView extends View{
 
     public function  dashboard() {
         $this->setNecessery();
-        //todo wyciagnij z sesji i zdetuj ifnroaje o użytkowniku itd. TODO
+        //todo wyciagnij z sesji i zsetuj informacje o użytkowniku do wyświetlania w dashboardzie TODO
         $this->render('aplikacja/dashboard');
     }
     public function  logowanie() {

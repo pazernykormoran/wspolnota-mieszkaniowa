@@ -20,8 +20,8 @@ class UsterkiController extends Controller{
         $view->przegladajUsterki();
     }
     public function szczegolyUsterki() {
-        $view=$this->loadView('usterki');
         if(isset($_GET['idUsterki'])){
+            $view=$this->loadView('usterki');
             $view->szczegolyUsterki($_GET['idUsterki']);
         }else{
             $this->redirect('?task=usterki&action=przegladajUsterki&info=Błąd, nie ma takiej usterki');
