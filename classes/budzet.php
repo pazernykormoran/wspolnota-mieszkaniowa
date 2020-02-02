@@ -15,5 +15,16 @@ class Budzet{
     }
 
 //todo zrobić gettery i settery
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setPlanyWydatkow($planyWydatkow){
+        $this->planyWydatkow=$planyWydatkow;
+    }
+
+    public function getPlanyWydatkow(){
+        return $this->planyWydatkow;
+    }
 }
 ?>

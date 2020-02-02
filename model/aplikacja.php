@@ -16,7 +16,7 @@ class AplikacjaModel extends Model{
         }
 
         //mok:
-        $uzytkownik=new Uzytkownik('id','login','imie','nazwisko','pytPomocnicze','rola','stanKonta','wspolnotaMieszkaniowa');
+        $uzytkownik=new Uzytkownik('id','login','imie','nazwisko','pytPomocnicze','odp','rola','stanKonta','wspolnotaMieszkaniowa');
         
         if(isset($uzytkownik)){
             $_SESSION['uzytkownik']=$uzytkownik;

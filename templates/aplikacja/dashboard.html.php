@@ -10,6 +10,26 @@
 </head>
 
 <body>
+
+
+{if isset($budzetArray)}
+  {foreach from=$budzetArray item=budzetElement}
+    tutaj wyświetlam sobie id Budżetu:
+    {$budzetElement->getId()}
+
+    {foreach from=$budzetElement->getPlanyWydatkow() item=planwydatku}
+      <br>
+      tutaj wyświetlam sobie id planu wydatku w budżecie:
+      {$planwydatku->getId()}
+
+    {/foreach}
+
+  {/foreach}
+{/if}
+
+
+
+
 <div>
 {include file='includes/komunikaty.html'}
 </div>

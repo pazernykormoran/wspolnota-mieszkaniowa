@@ -17,6 +17,7 @@ class UsterkiController extends Controller{
     }
     public function przegladajUsterki() {
         $view=$this->loadView('usterki');
+
         $view->przegladajUsterki();
     }
     public function szczegolyUsterki() {

@@ -5,6 +5,7 @@ include 'view/view.php';
 class UsterkiView extends View{
     public function  zglosUsterke() {
         $this->setNecessery();
+        //
         $this->render('usterki/zglosUsterke');
     }
     public function  przegladajUsterki() {
