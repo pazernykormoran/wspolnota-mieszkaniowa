@@ -8,13 +8,9 @@ class UsterkiController extends Controller{
         $view->zglosUsterke();
     }
     public function zglosUsterkePerform() {
-
-        echo $postArray['login']
-     //   if(isset($postArray['login'])&&isset($postArray['haslo'])){
-            
-      //  }
-
         $model=$this->loadModel('usterki');
+
+
         if($model->zglosUsterkePerform($_POST)){
             $this->redirect('?task=aplikacja&action=dashboard&info=Usterka została pomyślnie zgłoszona');
         }else{

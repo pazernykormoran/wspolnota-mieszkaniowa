@@ -38,10 +38,10 @@
         <label class="col-sm-2 col-form-label">Dokładny adres</label>
         <div class="col-4">
           <div class="form-group">
-      
+
             <select class="form-control" id="adres" name="adres">
             {foreach from=$adresy item=adres}
-              <option value={$adres->getId()} >{$adres->getMiejscowosc()}  {$adres->getUlica()}  {$adres->getNumerMieszkania()}  {$adres->getKodPocztowy()}</option>
+              <option value= {$adres->getBudynek()}> {$adres->getMiejscowosc()}  {$adres->getUlica()}  {$adres->getNumerMieszkania()}  {$adres->getKodPocztowy()}</option>
               {/foreach}
 
             </select>
