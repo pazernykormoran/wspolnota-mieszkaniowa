@@ -10,7 +10,7 @@ class BudzetController extends Controller{
     public function elementBudzetu() {
         if(isset($_GET['idElementuBudzetu'])){
             $view=$this->loadView('budzet');
-            $view->elementBudzetu();
+            $view->elementBudzetu($_GET['idElementuBudzetu']);
         }else{
             $this->redirect('?task=budzet&action=przegladajBudzet&info=Błąd, nie ma takiego wydatku');
         }
@@ -22,7 +22,7 @@ class BudzetController extends Controller{
     public function elementPlanuBudzetowego() {
         if(isset($_GET['idElementuPlanuBudzetowego'])){
             $view=$this->loadView('budzet');
-            $view->elementBudzetu();
+            $view->elementPlanuBudzetowego($_GET['idElementuPlanuBudzetowego']);
         }else{
             $this->redirect('?task=budzet&action=przegladajBudzet&info=Błąd, nie ma takiego wydatku');
         }
