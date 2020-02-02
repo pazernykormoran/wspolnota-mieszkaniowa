@@ -44,6 +44,9 @@ class PlanWydatku{
         $this->wydatki=$wydatki;
     }
 
+    public function setKategoria($kategoria){
+        $this->kategoria=$kategoria;
+    }
 
 }
 ?>

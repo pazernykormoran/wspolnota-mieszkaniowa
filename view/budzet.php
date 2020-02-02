@@ -14,7 +14,7 @@ class BudzetView extends View{
 
         //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
         $budzet=$budzetModel->pobierzBudzet('aktualny');
-
+        $this->set('budzet',$budzet);
         $this->render('budzet/przegladajBudzet');
     }
 

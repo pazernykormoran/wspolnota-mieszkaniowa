@@ -20,7 +20,7 @@ class AplikacjaModel extends Model{
         
         if(isset($uzytkownik)){
             $_SESSION['uzytkownik']=$uzytkownik;
-            $_SESSION['idWspolnoty']=1;
+            $_SESSION['idWspolnoty']=2;
             return true;
         }else{
             return false;

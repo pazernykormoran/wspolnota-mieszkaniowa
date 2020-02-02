@@ -4,6 +4,7 @@
 include 'model/model.php';
 include 'classes/budzet.php';
 include 'classes/planWydatku.php';
+include 'classes/Kategoria.php';
 
 class BudzetModel extends Model{
 
@@ -23,18 +24,23 @@ class BudzetModel extends Model{
         $select=$this->pdo->query($query);
         $budzet;
         foreach ($select as $row) {
-            $budzet=new Budzet($row["id"],$row["idWspolnoty"],$row["rokRozliczeniowy"],$row["typ"]);
+            $budzet=new Budzet($row["id"],$row["idWspolnoty"],$row["rokRozliczeniowy"],$row["typ"],array());
         }
-
-        $query="SELECT id,idBudzetu,idKategorii, nazwa, czestotliwoscRoczna, kwota
-        From plan_wydatku
+        //echo $budzet->getId();
+        $query="SELECT a.id AS idPlanuWydatku ,a.idBudzetu,a.idKategorii, a.nazwa AS nazwaPlanuWydatku, a.czestotliwoscRoczna, a.kwota, k.id AS idKategorii, k.nazwa AS nazwaKategorii, k.podzialkosztow
+        From plan_wydatku AS a
+        JOIN kategorie AS k ON a.idKategorii=k.id
         Where idBudzetu = '".$budzet->getId()."'";
         $select=$this->pdo->query($query);
         $plany_wydatkow=[];
         foreach ($select as $row) {
-            $plany_wydatkow[]=new planWydatku($row["id"],$row["czestotliwoscRoczna"],$row["kwota"],$row["nazwa"],"",array());
-        }               
-
+            $plany_wydatkow[]=new planWydatku($row["idPlanuWydatku"],$row["czestotliwoscRoczna"],$row["kwota"],$row["nazwaPlanuWydatku"],
+            new Kategoria($row["idKategorii"],$row["podzialkosztow"],$row["nazwaKategorii"]),array());
+            //echo $row["nazwaKategorii"]; echo "<br>";
+        }     
+        $budzet->setPlanyWydatkow($plany_wydatkow);
+        
+        return $budzet;
         //return $data;
         //zwraca obiekt Budzet;
     }
