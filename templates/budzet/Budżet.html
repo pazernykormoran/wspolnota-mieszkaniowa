@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html lang="pl">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,17 +27,19 @@
           <input class="form-control" type="text" value = "1003" readonly>
         </div>
 
+        <div class="col-3">
+          <label class="form-label">Koszt:</label>
+          <input class="form-control" type="number" value = "1002" readonly>
+        </div>
+
+        <div class="col-3">
+          <label class="form-label">Częstotliwość (rocznie):</label>
+          <input class="form-control" type="text" value = "1003" readonly>
+        </div>
 
       </div>
     </div>
 
-    <div style="padding-top: 20px;">
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label" placeholder="Podaj opis usterki">Dokładny adres</label>
-          <div class="col-5">
-         <textarea class="form-control" name="opis" rows="3" readonly></textarea>
-          </div>
-      </div>
 
     <div style="padding-top: 50px;">
       <div class="form-group row">
@@ -47,14 +49,39 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <input type="submit" class="btn btn-success" value="W trakcie realizacji" />
-              </div>
-          <div class="col-sm">
-        <button type="button"  onclick="location.href = 'moje-zamowienia.php';" class="btn btn-secondary ">Powrót</button>
-          </div>
+
+    <div style="padding-top: 50px;">
+<h2>Stan realizacji</h2>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Numer</th>
+          <th scope="col">Data</th>
+          <th scope="col">Opis</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <th scope="row">1</th>
+          <td>Remont budynku</td>
+          <td>Remonty</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Fundusz odtworzeniowy</td>
+          <td>KOszenie trawy</td>
+        <tr>
+          <th scope="row">3</th>
+          <td>Fundusz odtworzeniowy</td>
+          <td>Fundusz odtworzeniowy</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    </div>
 
 
       </div>
