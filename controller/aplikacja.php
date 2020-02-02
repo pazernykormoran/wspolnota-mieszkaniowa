@@ -38,7 +38,7 @@ class AplikacjaController extends Controller{
         } 
     }
     public function pytaniePomocnicze() {
-        if(isset($_GET['pytaniePomocnicze'])){
+        if($this->czyWczytanoPytPomocnicze()){
             $view=$this->loadView('aplikacja');
             $view->pytaniePomocnicze($_GET['pytaniePomocnicze']);
         }else{
@@ -55,7 +55,7 @@ class AplikacjaController extends Controller{
         }
     }
     public function zmienHaslo() {
-        if((isset($_SESSION['uzytkownik'])&&isset($_SESSION['idWspolnoty'])) || isset($_SESSION['moznaZmienicHaslo'])){
+        if($this->czyMoznaZmienicHaslo()){
             $view=$this->loadView('aplikacja');
             $view->zmienHaslo();
         }else{
@@ -82,6 +82,23 @@ class AplikacjaController extends Controller{
         unset($_SESSION['uzytkownik']);
         unset($_SESSION['idWspolnoty']);
         $this->redirect('?task=aplikacja&action=logowanie&info=Pomyślnie wylogowano');
+    }
+    private function czyMoznaZmienicHaslo() {
+        if((isset($_SESSION['uzytkownik'])&&isset($_SESSION['idWspolnoty'])) || isset($_SESSION['moznaZmienicHaslo'])){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private function czyWczytanoPytPomocnicze() {
+        if(isset($_GET['pytaniePomocnicze'])){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
 ?>
