@@ -10,6 +10,18 @@ class WspolnotaMieszkaniowa{
         $this->numerKonta=$numerKonta;
      }
 
-     // todo zrobić gettery
+     public function getId(){
+        return $this->id;
+    }
+
+    public function getNazwa(){
+        return $this->nazwa;
+    }
+
+    public function getNumerKonta(){
+        return $this->numerKonta;
+    }
+
+
 }
 ?>

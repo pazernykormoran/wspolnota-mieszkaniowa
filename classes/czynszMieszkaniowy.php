@@ -16,6 +16,28 @@ class CzynszMieszkaniowy{
         $this->budzet=$budzet;
      }
 
-//todo zrobić gettery i settery
+     public function getId(){
+        return $this->id;
+    }
+
+    public function getMieszkanie(){
+        return $this->mieszkanie;
+    }
+
+    public function getUzytkownik(){
+        return $this->uzytkownik;
+    }
+
+    public function getData(){
+        return $this->data;
+    }
+
+    public function getKwota(){
+        return $this->kwota;
+    }
+
+    public function getBudzet(){
+        return $this->budzet;
+    }
 }
 ?>

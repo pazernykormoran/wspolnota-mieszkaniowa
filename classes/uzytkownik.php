@@ -22,6 +22,41 @@ class Uzytkownik{
         $this->wspolnotaMieszkaniowa=$wspolnotaMieszkaniowa;
      }
 
-     //todo zrobić gettery i settery
+     public function getId(){
+        return $this->id;
+    }
+
+    public function getLogin(){
+        return $this->login;
+    }
+
+    public function getImie(){
+        return $this->imie;
+    }
+
+    public function getNazwisko(){
+        return $this->nazwisko;
+    }
+
+    public function getPytaniePomocnicze(){
+        return $this->pytaniePomocnicze;
+    }
+
+    public function getOdpowiedzPomocnicza(){
+        return $this->odpowiedzPomocnicza;
+    }
+
+    public function getRola(){
+        return $this->rola;
+    }
+
+    public function getStanKonta(){
+        return $this->stanKonta;
+    }
+
+    public function getWspolnotaMieszkaniowa(){
+    return $this->wspolnotaMieszkaniowa;
+    }
+
 }
 ?>

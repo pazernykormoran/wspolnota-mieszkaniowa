@@ -10,6 +10,16 @@ class Budynek{
         $this->wspolnotaMieszkaniowa=$wspolnotaMieszkaniowa;
      }
 
-//todo zrobić gettery i settery
+     public  function getId(){
+        return $this->id;
+    }
+
+    public  function getAdres(){
+        return $this->adres;
+    }
+
+    public function getWspolnotaMieszkaniowa(){
+        return $this->wspolnotaMieszkaniowa;
+    }
 }
 ?>

@@ -12,6 +12,21 @@ class Wydatek{
         $this->kwota=$kwota;
      }
 
-//todo zrobić gettery i settery
+     public function getId(){
+        return $this->id;
+    }
+
+    public function getOpis(){
+        return $this->opis;
+    }
+
+    public function getData(){
+        return $this->data;
+    }
+
+    public function getKwota(){
+        return $this->kwota;
+    }
+
 }
 ?>

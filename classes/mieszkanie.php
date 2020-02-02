@@ -14,6 +14,24 @@ class Mieszkanie{
         $this->subkonto=$subkonto;
      }
 
-//todo zrobić gettery i settery
+     public function getId(){
+        return $this->id;
+    }
+    
+    public function getCzynsz(){
+        return $this->czynsz;
+    }
+
+    public function getNumer(){
+        return $this->numer;
+    }
+
+    public function getPowierzchnia(){
+        return $this->powierzchnia;
+    }
+
+    public function getSubkonto(){
+        return $this->subkonto;
+    }
 }
 ?>

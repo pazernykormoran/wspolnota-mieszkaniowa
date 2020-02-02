@@ -5,18 +5,45 @@ class Lokal{
     private $numer;
     private $powierzchnia;
     private $subkonto;
-    private $wynajęty;
+    private $wynajety;
     private $zagospodarowanie;
 
-    function __construct($id,$czynsz,$numer,$powierzchnia,$subkonto,$wynajęty,$zagospodarowanie) {
+    function __construct($id,$czynsz,$numer,$powierzchnia,$subkonto,$wynajety,$zagospodarowanie) {
         $this->id=$id;
         $this->czynsz=$czynsz;
         $this->numer=$numer;
         $this->powierzchnia=$powierzchnia;
-        $this->wynajęty=$wynajęty;
+        $this->wynajety=$wynajety;
         $this->zagospodarowanie=$zagospodarowanie;
      }
 
-//todo zrobić gettery i settery
+     public function getId(){
+        return $this->id;
+    }
+
+    public function getCzynsz(){
+        return $this->czynsz;
+    }
+
+    public function getNumer(){
+        return $this->numer;
+    }
+
+    public function getPowierzchnia(){
+        return $this->powierzchnia;
+    }
+
+    public function getSunkonto(){
+        return $this->subkonto;
+    }
+
+    public function getWynajety(){
+        return $this->wynajety;
+    }
+
+    public function getZagospodarowanie(){
+        return $this->zagospodarowanie;
+    }
+
 }
 ?>

@@ -17,26 +17,26 @@ class Adres{
      }
 
 //todo zrobić gettery i settery\
-function getMiejscowosc(){
+public function getMiejscowosc(){
     return $this->miejscowosc;
 }
 
-function getNumerMieszkania(){
+public function getNumerMieszkania(){
     return $this->numerMieszkania;
 }
 
-function getUlica(){
+public function getUlica(){
     return $this->ulica;
 }
 
-function getBudynek(){
+public function getBudynek(){
     return $this->budynek;
 }
-function getId(){
+public function getId(){
     return $this->id;
 }
 
-function getKodPocztowy(){
+public function getKodPocztowy(){
     return $this->kodPocztowy;
 }
 

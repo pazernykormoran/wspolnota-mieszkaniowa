@@ -19,12 +19,24 @@ class Budzet{
         return $this->id;
     }
 
+    public function getRokRozliczeniowy(){
+        return $this->rokRozliczeniowy;
+    }
+
+    public function getWspolnotaMieszkaniowa(){
+        return $this->wspolnotaMieszkaniowa;
+    }
+    public function getPlanyWydatkow(){
+        return $this->planyWydatkow;
+    }
+    public function getTyp(){
+        return $this->typ;
+    }
+
     public function setPlanyWydatkow($planyWydatkow){
         $this->planyWydatkow=$planyWydatkow;
     }
 
-    public function getPlanyWydatkow(){
-        return $this->planyWydatkow;
-    }
+
 }
 ?>

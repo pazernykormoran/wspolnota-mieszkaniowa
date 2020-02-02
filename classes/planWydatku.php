@@ -15,9 +15,35 @@ class PlanWydatku{
         $this->kategoria=$kategoria;
         $this->wydatki=$wydatki;
      }
+
      public function getId(){
         return $this->id;
     }
-//todo zrobić gettery i settery
+
+    public function getCzestotliwoscRoczna(){
+        return $this->czestotliwoscRoczna;
+    }
+    
+    public function getKwota(){
+        return $this->kwota;
+    }
+    
+    public function getNazwa(){
+        return $this->nazwa;
+    }
+
+    public function getKategoria(){
+        return $this->kategoria;
+    }
+
+    public function getWydatki(){
+        return $this->wydatkid;
+    }
+
+    public function setWydatki($wydatki){
+        $this->wydatki=$wydatki;
+    }
+
+
 }
 ?>

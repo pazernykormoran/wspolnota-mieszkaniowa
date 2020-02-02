@@ -4,12 +4,22 @@ class Kategoria{
     private $nazwa;
     private $podzialKosztow;//rowno albo w zależności od metrażu mieszkania
 
-    function __construct($id,$danazwata,$podzialKosztow) {
+    function __construct($id,$danazwata,$podzialKosztow,$nazwa) {
         $this->id=$id;
         $this->nazwa=$nazwa;
         $this->podzialKosztow=$podzialKosztow;
      }
 
-//todo zrobić gettery i settery
+     public function getId(){
+        return $this->id;
+    }
+
+    public function getNazwa(){
+        return $this->nazwa;
+    }
+    
+    public function getPodzialKosztow(){
+        return $this->podzialKosztow;
+    }
 }
 ?>
