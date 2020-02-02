@@ -318,10 +318,10 @@ input[type=password]:placeholder {
     <form action="?task=aplikacja&action=zmienHasloPerform" method="post">
   
       <h2>Podaj nowe hasło:</h2>
-      <input type="password" id="password" class="fadeIn third" name="haslo" placeholder="Wpisz nowe hasło">
+      <input type="password" id="password" class="fadeIn third" name="haslo1" placeholder="Wpisz nowe hasło">
 
       <h2>Powtórz hasło:</h2>
-      <input type="password" id="password" class="fadeIn third" name="haslo" placeholder="Wpisz stare hasło">
+      <input type="password" id="password" class="fadeIn third" name="haslo2" placeholder="Powtórz hasło">
       
       {if isset($error) && $error != ""}
           <div class="alert alert-danger">

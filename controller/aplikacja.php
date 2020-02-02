@@ -60,11 +60,11 @@ class AplikacjaController extends Controller{
     }
     public function zmienHasloPerform() {
         $model=$this->loadModel('aplikacja');
-        if($model->zapomnialemHaslaValidate($_POST)){
+        if($model->zmienHasloPerform($_POST)){
             $this->redirect('?task=aplikacja&action=logowanie');
         }else{
             //dodaj cos do GET // TODO
-            $this->redirect('?task=aplikacja&action=zmienHaslo?error=Nie udało się zmienić hasła');
+            $this->redirect('?task=aplikacja&action=zmienHaslo&error=Nie udało się zmienić hasła');
         }
     }
 }
