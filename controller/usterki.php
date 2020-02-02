@@ -5,12 +5,11 @@ class UsterkiController extends Controller{
 
     public function zglosUsterke() {
         $view=$this->loadView('usterki');
-      //  $model=$this->loadModel('usterki');
-      //  $model->pobierzAdresyBudynkowWspolnoty('1');
         $view->zglosUsterke();
     }
     public function zglosUsterkePerform() {
 
+        echo $postArray['login']
      //   if(isset($postArray['login'])&&isset($postArray['haslo'])){
             
       //  }

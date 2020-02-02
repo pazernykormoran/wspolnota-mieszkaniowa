@@ -27,25 +27,25 @@ class UsterkiModel extends Model{
     }
 
     public function pobierzAdresyBudynkowWspolnoty($id) {
-        $query="SELECT *
+        $query="SELECT DISTINCT miejscowosc,nrMieszkania,ulica, kodPocztowy, idZewnetrzne
         From adresy
-        Where idZewnetrzne = 1";
+        Where idZewnetrzne IN ( 
+            SELECT id 
+            From budynki
+            Where idWspolnoty =".$id.")";
             
         $select=$this->pdo->query($query);
         foreach ($select as $row) {
             $data[]=new Adres(null, $row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"], $row["idZewnetrzne"]);
 
         }
-        foreach ($data as $key => $val) {
-            echo $val["kodPocztowy"];
-         }
 
         $select->closeCursor();
 
         return $data;
     }
 
-   public function insert($data) {
+   private function insert($data) {
         $ins=$this->pdo->prepare('INSERT INTO articles (idUżytkownika, idBudynku, dataZgłoszenia, temat, opis,stan) VALUES (
             :uzytkownik, :budynek, :dataZgloszenia, :opis, :stanRealizacji)');
         $ins->bindValue(':uzytkownik', '1', PDO::PARAM_STR);

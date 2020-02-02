@@ -10,10 +10,6 @@
 
 <body>
 
-{foreach from=$adresy item=foo}
-    <li>{$foo}</li>
-{/foreach}
-
 
   <div>
     {include file='includes/komunikaty.html'}
@@ -42,12 +38,12 @@
         <label class="col-sm-2 col-form-label">Dokładny adres</label>
         <div class="col-4">
           <div class="form-group">
-
+      
             <select class="form-control" id="adres" name="adres">
-              <option>dfsfdsfsfsfsfsd</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
+            {foreach from=$adresy item=adres}
+              <option value={$adres->getId()} >{$adres->getMiejscowosc()}  {$adres->getUlica()}  {$adres->getNumerMieszkania()}  {$adres->getKodPocztowy()}</option>
+              {/foreach}
+
             </select>
           </div>
         </div>

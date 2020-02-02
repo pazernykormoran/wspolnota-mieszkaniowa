@@ -5,8 +5,9 @@ include 'view/view.php';
 class UsterkiView extends View{
     public function  zglosUsterke() {
         $this->setNecessery();
+
         $usterkiModel= $this->loadModel('usterki');
-        $this->set('usterki', $usterkiModel->pobierzAdresyBudynkowWspolnoty('1'));
+        $this->set('adresy', $usterkiModel->pobierzAdresyBudynkowWspolnoty($_SESSION['idWspolnoty']));
         $this->render('usterki/zglosUsterke');
     }
     public function  przegladajUsterki() {
