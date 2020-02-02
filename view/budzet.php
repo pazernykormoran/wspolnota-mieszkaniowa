@@ -13,6 +13,16 @@ class BudzetView extends View{
         $usterkiModel= $this->loadModel('budzet');
 
         //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
+        $query="SELECT a.id, a.title, a.date_add, a.autor, c.name FROM articles AS a 
+        LEFT JOIN categories AS c ON a.id_categories=c.id";
+        
+        $select=$this->pdo->query($query);
+
+        $budzetArray=[];
+        array_push($budzetArray,new Budzet('id',1234,'typ','wspolnota',array()));
+        $this->set('budzetArray',$budzetArray);
+        $planWydatkowArray=[];
+        array_push($planWydatkowArray,new PlanWydatku('id',2,342,'nazwa','kategoria',array() ));
 
         $this->render('budzet/przegladajBudzet');
     }
