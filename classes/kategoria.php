@@ -4,7 +4,7 @@ class Kategoria{
     private $nazwa;
     private $podzialKosztow;//rowno albo w zależności od metrażu mieszkania
 
-    function __construct($id,$danazwata,$podzialKosztow,$nazwa) {
+    function __construct($id,$podzialKosztow,$nazwa) {
         $this->id=$id;
         $this->nazwa=$nazwa;
         $this->podzialKosztow=$podzialKosztow;

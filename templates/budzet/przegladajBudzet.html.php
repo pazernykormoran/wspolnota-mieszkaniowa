@@ -65,6 +65,9 @@
 
           <div class="col">
 <h2>Wypływy</h2>
+
+
+
             <div>
                 <table class="table table-striped">
                     <thead>
@@ -76,24 +79,25 @@
                       </tr>
                     </thead>
                     <tbody>
-            
-                      <tr>
-                        <th scope="row">1</th>
-                        <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1">Aktualny budżet</a> </td>
-                        <td>Remonty</td>
-                        <td>212133</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>KOszenie trawy</td>
-                        <td>2131</td>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>324234</td>
-                      </tr>
+
+                    {if isset($budzet)}
+                        <!-- tutaj wyświetlam sobie id Budżetu:
+                        {$budzet->getId()} -->
+
+                        {foreach from=$budzet->getPlanyWydatkow() item=planwydatku}
+                        <tr>
+                          <th scope="row">1</th>
+                          <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1">{$planwydatku->getNazwa()}</a> </td>
+                          <td>{$planwydatku->getKategoria()->getNazwa()}</td>
+                          <td>{$planwydatku->getKwota()}</td>
+                        </tr>
+                          <!-- tutaj wyświetlam sobie id planu wydatku w budżecie:
+                          {$planwydatku->getId()}
+                          tutaj sobie id kategorii wysiwetlam
+                          {$planwydatku->getKategoria()->getNazwa()} -->
+
+                        {/foreach}
+                    {/if}
             
                     </tbody>
                   </table>
