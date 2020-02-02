@@ -33,10 +33,7 @@ class UsterkiModel extends Model{
         $select=$this->pdo->query($query);
         foreach ($select as $row) {
             $data[]=new Adres(null, $row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"], $row["idZewnetrzne"]);
-
         }
-
-        $select->closeCursor();
 
         return $data;
     }
