@@ -14,7 +14,8 @@ class AplikacjaModel extends Model{
         $uzytkownik=new Uzytkownik('id','login','imie','nazwisko','pytPomocnicze','rola','stanKonta','wspolnotaMieszkaniowa');
         
         if(isset($uzytkownik)){
-            $_SESSION["uzytkownik"]=$uzytkownik;
+            $_SESSION['uzytkownik']=$uzytkownik;
+            $_SESSION['idWspolnoty']=1;
             return true;
         }else{
             return false;

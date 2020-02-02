@@ -1,5 +1,5 @@
 <?php
-//sprawdź czy użytkownik jest zalogowany. -----TODO
+session_start();
 
 function callAction($controller){
     if(isset($_GET['action'])){
@@ -10,17 +10,7 @@ function callAction($controller){
 }
 
 if(isset($_GET['task'])){
-    if($_GET['task']=='categories') {
-        include 'controller/categories.php';
-        $ob = new CategoriesController();
-        callAction($ob);
-    } else if($_GET['task']=='articles') {
-        include 'controller/articles.php';
-        $ob = new ArticlesController();
-        callAction($ob);
-    }
-    //=--------------prawilnie:
-    else if($_GET['task']=='aplikacja') {
+    if($_GET['task']=='aplikacja') {
         include 'controller/aplikacja.php';
         $ob = new AplikacjaController();
         callAction($ob);
@@ -28,8 +18,14 @@ if(isset($_GET['task'])){
     else if($_GET['task']=='usterki') {
         include 'controller/usterki.php';
         $ob = new UsterkiController();
+        if(!$ob->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
+        }
         callAction($ob);
     }else if($_GET['task']=='budzet') {
+        if(!$ob->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
+        }
         include 'controller/budzet.php';
         $ob = new BudzetController();
         callAction($ob);
