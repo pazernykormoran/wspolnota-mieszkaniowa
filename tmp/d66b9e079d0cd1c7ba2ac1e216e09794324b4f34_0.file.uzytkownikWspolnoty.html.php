@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:38:50
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:07:07
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\includes\uzytkownikWspolnoty.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36ed0a872c09_08496092',
+  'unifunc' => 'content_5e36f3abdc9424_24098133',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd66b9e079d0cd1c7ba2ac1e216e09794324b4f34' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\includes\\uzytkownikWspolnoty.html',
-      1 => 1580657769,
+      1 => 1580659511,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e36ed0a872c09_08496092 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36f3abdc9424_24098133 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="vertical-menu">
     <div class = "menuSection">
         Panel użytkownika wspólnoty
@@ -28,7 +28,7 @@ function content_5e36ed0a872c09_08496092 (Smarty_Internal_Template $_smarty_tpl)
     <a href="?task=usterki&action=zglosUsterke">Zgłoś usterke</a>
     <a href="?task=budzet&action=przegladajBudzet">Aktualny budżet</a>
     <a href="?task=budzet&action=przegladajPlanBudzetowy">Plan budżetowy</a>
-    <a href="?task=usterki&action=przegladajUsterki">Przeglądaj zgłoszenia usterki</a>
+    <a href="?task=usterki&action=przegladajUsterki">Przeglądaj zgłoszone usterki</a>
 
   </div>
 

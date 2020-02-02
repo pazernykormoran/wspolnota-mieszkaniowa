@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:48:43
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:03:43
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\usterki\usterki.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36ef5b14d3c1_27636540',
+  'unifunc' => 'content_5e36f2df0223e7_74067176',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e36ef5b14d3c1_27636540 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36f2df0223e7_74067176 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
 <html lang="pl">
 <head>

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:57:06
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:03:31
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\przegladajPlanBudzetowy.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36f15200b212_40672652',
+  'unifunc' => 'content_5e36f2d31ad506_21123126',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e36f15200b212_40672652 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36f2d31ad506_21123126 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html lang="pl">
 <head>

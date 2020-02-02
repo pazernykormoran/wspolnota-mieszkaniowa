@@ -16,6 +16,29 @@ class Adres{
         $this->budynek=$budynek;
      }
 
-//todo zrobić gettery i settery
+//todo zrobić gettery i settery\
+function getMiejscowosc(){
+    return $this->miejscowosc;
+}
+
+function getNumerMieszkania(){
+    return $this->numerMieszkania;
+}
+
+function getUlica(){
+    return $this->ulica;
+}
+
+function getBudynek(){
+    return $this->budynek;
+}
+function getId(){
+    return $this->id;
+}
+
+function getKodPocztowy(){
+    return $this->kodPocztowy;
+}
+
 }
 ?>
