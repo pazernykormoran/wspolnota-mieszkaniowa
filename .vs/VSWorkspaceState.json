@@ -6,6 +6,6 @@
     "\\templates\\aplikacja",
     "\\templates\\budzet"
   ],
-  "SelectedNode": "\\controller\\budzet.php",
+  "SelectedNode": "\\templates\\aplikacja\\dashboard.html.php",
   "PreviewInSolutionExplorer": false
 }

@@ -10,10 +10,17 @@
 </head>
 
 <body>
+<div>
 {include file='includes/komunikaty.html'}
+</div>
 
-<div class="container" style="width: 70%; position: absolute; right: 0px;">
-<img src="images/wspolnota.png" alt="Italian Trulli">
+<div class="container" style="width: 30%; position: absolute; left: 0px;"  class="center">
+{include file='includes/menuUzytkownik.html'}
+{include file='includes/uzytkownikWspolnoty.html'}
+</div>
+
+<div class="container" style="width: 70%; position: absolute; left: 500px;"">
+<img src="images/wspolnota.jpg" alt="Italian Trulli">
 </div>
 
 
@@ -22,5 +29,12 @@
 
 <style>
 .container img {
-   width: 100%;
-} </style>
+   width: 80%;
+} 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>

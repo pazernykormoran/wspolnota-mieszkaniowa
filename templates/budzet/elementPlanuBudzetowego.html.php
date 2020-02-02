@@ -8,8 +8,17 @@
 </head>
 
 <body>
+  
+<div>
+{include file='includes/komunikaty.html'}
+</div>
 
-    <div class="container" style="width: 70%; position: absolute; right: 0px;">
+<div class="container" style="width: 30%; position: absolute; left: 0px;">
+{include file='includes/menuUzytkownik.html'}
+{include file='includes/uzytkownikWspolnoty.html'}
+</div>
+
+    <div class="container"  style="width: 70%; position: absolute; left: 300px;">
   
     <span class="d-block p-2 bg-primary text-white">Nazwa budżetu</span>
 

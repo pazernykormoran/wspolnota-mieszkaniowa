@@ -9,15 +9,16 @@
 
 <body>
 
+<div>
 {include file='includes/komunikaty.html'}
-{include file='includes/menuUzytkownik.html'}
-
-
-<div class="container" style="width: 30%; position: absolute; right: 0px;">
-
 </div>
 
-    <div class="container" style="width: 70%; position: absolute; right: 0px;">
+<div class="container" style="width: 30%; position: absolute; left: 0px;">
+{include file='includes/menuUzytkownik.html'}
+{include file='includes/uzytkownikWspolnoty.html'}
+</div>
+
+    <div class="container" style="width: 70%; position: absolute; left: 300px;">
         <div class="row">
           <div class="col">
 
