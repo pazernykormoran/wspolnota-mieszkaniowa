@@ -110,12 +110,6 @@
 
         <div style=" position: absolute; right: 100px;">
       
-        <div class="form-group row" style = "padding-top: 80px;">
-            <label class="col-4 col-form-label">Saldo</label>
-            <div class="col-8">
-                <input class="form-control" type="number" value = "1000" readonly>
-            </div>
-          </div>
 
           <div class="form-group row">
             <label class="col-4 col-form-label">Twój czynsz</label>

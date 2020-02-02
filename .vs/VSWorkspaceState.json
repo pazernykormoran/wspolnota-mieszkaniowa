@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\controller",
+    "\\templates",
+    "\\templates\\aplikacja",
+    "\\templates\\budzet"
   ],
+  "SelectedNode": "\\controller\\budzet.php",
   "PreviewInSolutionExplorer": false
 }

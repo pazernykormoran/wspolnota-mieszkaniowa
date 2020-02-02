@@ -17,22 +17,17 @@
     <div class="container" style="padding-top: 30px;">
       <div class="row">
         
-        <div class="col-3">
+        <div class="col-4">
           <label class="form-label">Kategoria:</label>
           <input class="form-control" type="text" value = "fdasd" readonly>
         </div>
 
-        <div class="col-3">
-          <label class="form-label">Usługi:</label>
-          <input class="form-control" type="text" value = "1003" readonly>
-        </div>
-
-        <div class="col-3">
+        <div class="col-4">
           <label class="form-label">Koszt:</label>
           <input class="form-control" type="number" value = "1002" readonly>
         </div>
 
-        <div class="col-3">
+        <div class="col-4">
           <label class="form-label">Częstotliwość (rocznie):</label>
           <input class="form-control" type="text" value = "1003" readonly>
         </div>
