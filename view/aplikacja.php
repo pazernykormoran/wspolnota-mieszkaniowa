@@ -30,7 +30,6 @@ class AplikacjaView extends View{
     }
     public function pytaniePomocnicze($pytaniePomocnicze) {
         $this->setNecessery();
-        // pobierz pytanie pomocnicze z modelu oraz set pytanie pomocnicze TODO
         $this->set('pytaniePomocnicze',$pytaniePomocnicze);
         $this->render('aplikacja/pytaniePomocnicze');
     }
