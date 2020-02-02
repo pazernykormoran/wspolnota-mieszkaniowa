@@ -13,14 +13,15 @@ class UsterkiModel extends Model{
 
     }
     public function pobierzUsterki() {
-        //pobiera z bazy liste zgloszonych usterek
+        //pobierz id wspolnoty z sesji użytkownik->wspolnowaMieszkaniowa->id;
+        //pobiera z bazy liste zgloszonych usterek dla danej wspolnoty
         
-        //zwraca liste pobranych usterek
+        //zwraca liste pobranych usterek klasy Usterka
     }
     public function pobierzSzczegolyUsterki($id) {
-        //pobiera z bazy liste usterek "
+        //pobiera z bazy usterke dla id wspolnoty mieszkaniowej oraz id usterki z parametru funkcji.
             
-        //zwraca usterke.
+        //zwraca usterke klasy Usterka
     }
 
 }
