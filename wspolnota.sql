@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Lut 2020, 17:53
+-- Czas generowania: 02 Lut 2020, 20:57
 -- Wersja serwera: 10.4.6-MariaDB
 -- Wersja PHP: 7.3.8
 
@@ -33,14 +33,14 @@ CREATE TABLE `adresy` (
   `ulica` varchar(74) COLLATE utf8_polish_ci NOT NULL,
   `nrMieszkania` varchar(10) COLLATE utf8_polish_ci NOT NULL,
   `kodPocztowy` varchar(6) COLLATE utf8_polish_ci NOT NULL,
-  `miejscowość` varchar(31) COLLATE utf8_polish_ci NOT NULL
+  `miejscowosc` varchar(31) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `adresy`
 --
 
-INSERT INTO `adresy` (`idZewnetrzne`, `ulica`, `nrMieszkania`, `kodPocztowy`, `miejscowość`) VALUES
+INSERT INTO `adresy` (`idZewnetrzne`, `ulica`, `nrMieszkania`, `kodPocztowy`, `miejscowosc`) VALUES
 (1, 'Prosta', '4', '21-433', 'Warszawa'),
 (3, 'Prosta', '5', '21-433', 'Warszawa'),
 (2, 'Długa', '44', '45-766', 'Kraków');
@@ -53,14 +53,14 @@ INSERT INTO `adresy` (`idZewnetrzne`, `ulica`, `nrMieszkania`, `kodPocztowy`, `m
 
 CREATE TABLE `budynki` (
   `id` int(11) NOT NULL,
-  `idWspólnoty` int(11) NOT NULL
+  `idWspolnoty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `budynki`
 --
 
-INSERT INTO `budynki` (`id`, `idWspólnoty`) VALUES
+INSERT INTO `budynki` (`id`, `idWspolnoty`) VALUES
 (1, 1),
 (3, 1),
 (2, 2);
@@ -68,21 +68,21 @@ INSERT INTO `budynki` (`id`, `idWspólnoty`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `budżety`
+-- Struktura tabeli dla tabeli `budzety`
 --
 
-CREATE TABLE `budżety` (
+CREATE TABLE `budzety` (
   `id` int(11) NOT NULL,
-  `idWspólnoty` int(11) NOT NULL,
+  `idWspolnoty` int(11) NOT NULL,
   `rokRozliczeniowy` int(4) NOT NULL,
   `typ` varchar(15) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `budżety`
+-- Zrzut danych tabeli `budzety`
 --
 
-INSERT INTO `budżety` (`id`, `idWspólnoty`, `rokRozliczeniowy`, `typ`) VALUES
+INSERT INTO `budzety` (`id`, `idWspolnoty`, `rokRozliczeniowy`, `typ`) VALUES
 (1, 1, 2020, 'aktualny'),
 (2, 1, 2021, 'planowany'),
 (3, 2, 2020, 'aktualny'),
@@ -97,16 +97,16 @@ INSERT INTO `budżety` (`id`, `idWspólnoty`, `rokRozliczeniowy`, `typ`) VALUES
 CREATE TABLE `czynsze_lokalowe` (
   `id` int(11) NOT NULL,
   `idLokalu` int(11) NOT NULL,
-  `dataWpłaty` date NOT NULL,
+  `dataWplaty` date NOT NULL,
   `kwota` int(6) NOT NULL,
-  `idBudżetu` int(11) NOT NULL
+  `idBudzetu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `czynsze_lokalowe`
 --
 
-INSERT INTO `czynsze_lokalowe` (`id`, `idLokalu`, `dataWpłaty`, `kwota`, `idBudżetu`) VALUES
+INSERT INTO `czynsze_lokalowe` (`id`, `idLokalu`, `dataWplaty`, `kwota`, `idBudzetu`) VALUES
 (1, 2, '2020-02-02', 500, 3),
 (2, 2, '2020-01-02', 500, 3);
 
@@ -119,16 +119,16 @@ INSERT INTO `czynsze_lokalowe` (`id`, `idLokalu`, `dataWpłaty`, `kwota`, `idBud
 CREATE TABLE `czynsze_mieszkaniowe` (
   `id` int(11) NOT NULL,
   `idMieszkania` int(11) NOT NULL,
-  `dataWpłaty` date NOT NULL,
+  `dataWplaty` date NOT NULL,
   `kwota` int(6) NOT NULL,
-  `idBudżetu` int(11) NOT NULL
+  `idBudzetu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `czynsze_mieszkaniowe`
 --
 
-INSERT INTO `czynsze_mieszkaniowe` (`id`, `idMieszkania`, `dataWpłaty`, `kwota`, `idBudżetu`) VALUES
+INSERT INTO `czynsze_mieszkaniowe` (`id`, `idMieszkania`, `dataWplaty`, `kwota`, `idBudzetu`) VALUES
 (1, 7, '2020-02-02', 500, 3),
 (2, 7, '2020-01-05', 500, 3);
 
@@ -141,14 +141,14 @@ INSERT INTO `czynsze_mieszkaniowe` (`id`, `idMieszkania`, `dataWpłaty`, `kwota`
 CREATE TABLE `kategorie` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(30) COLLATE utf8_polish_ci NOT NULL,
-  `podzialKosztów` varchar(30) COLLATE utf8_polish_ci NOT NULL
+  `podzialKosztow` varchar(30) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `kategorie`
 --
 
-INSERT INTO `kategorie` (`id`, `nazwa`, `podzialKosztów`) VALUES
+INSERT INTO `kategorie` (`id`, `nazwa`, `podzialKosztow`) VALUES
 (1, 'Usługi stałe', 'równomierny'),
 (2, 'Zaplanowane remonty', 'metrażowy'),
 (3, 'Usterki', 'równomierny'),
@@ -221,10 +221,10 @@ INSERT INTO `mieszkania` (`id`, `idBudynku`, `numer`, `czynsz`, `powierzchnia`, 
 
 CREATE TABLE `plan_wydatku` (
   `id` int(11) NOT NULL,
-  `idBudżetu` int(11) NOT NULL,
+  `idBudzetu` int(11) NOT NULL,
   `idKategorii` int(11) NOT NULL,
   `nazwa` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `częstotliwośćRoczna` int(3) NOT NULL,
+  `czestotliwoscRoczna` int(3) NOT NULL,
   `kwota` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -232,7 +232,7 @@ CREATE TABLE `plan_wydatku` (
 -- Zrzut danych tabeli `plan_wydatku`
 --
 
-INSERT INTO `plan_wydatku` (`id`, `idBudżetu`, `idKategorii`, `nazwa`, `częstotliwośćRoczna`, `kwota`) VALUES
+INSERT INTO `plan_wydatku` (`id`, `idBudzetu`, `idKategorii`, `nazwa`, `czestotliwoscRoczna`, `kwota`) VALUES
 (1, 3, 1, 'Koszenie trawy', 12, 50),
 (2, 3, 2, 'Wymiana okien', 1, 2000),
 (3, 4, 2, 'Malowanie ścian klat', 1, 4000),
@@ -247,9 +247,9 @@ INSERT INTO `plan_wydatku` (`id`, `idBudżetu`, `idKategorii`, `nazwa`, `często
 
 CREATE TABLE `usterki` (
   `id` int(11) NOT NULL,
-  `idUżytkownika` int(11) NOT NULL,
+  `idUzytkownika` int(11) NOT NULL,
   `idBudynku` int(11) NOT NULL,
-  `dataZgłoszenia` date NOT NULL,
+  `dataZgloszenia` date NOT NULL,
   `temat` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `opis` varchar(150) COLLATE utf8_polish_ci NOT NULL,
   `stan` varchar(15) COLLATE utf8_polish_ci NOT NULL
@@ -259,32 +259,32 @@ CREATE TABLE `usterki` (
 -- Zrzut danych tabeli `usterki`
 --
 
-INSERT INTO `usterki` (`id`, `idUżytkownika`, `idBudynku`, `dataZgłoszenia`, `temat`, `opis`, `stan`) VALUES
+INSERT INTO `usterki` (`id`, `idUzytkownika`, `idBudynku`, `dataZgloszenia`, `temat`, `opis`, `stan`) VALUES
 (1, 1, 2, '2020-02-02', 'Wybita szyba', 'Wybita szyba na klatce nr 5', 'Zrealizowano'),
 (2, 2, 2, '2020-02-03', 'Spalona żarówka', 'Spalona żarówka w holu', 'Zaakceptowano');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `użytkownicy`
+-- Struktura tabeli dla tabeli `uzytkownicy`
 --
 
-CREATE TABLE `użytkownicy` (
+CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL,
   `imie` varchar(15) COLLATE utf8_polish_ci NOT NULL,
   `nazwisko` varchar(25) COLLATE utf8_polish_ci NOT NULL,
   `login` varchar(15) COLLATE utf8_polish_ci NOT NULL,
-  `hasło` varchar(20) COLLATE utf8_polish_ci NOT NULL,
+  `haslo` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `pytPomocnicze` varchar(50) COLLATE utf8_polish_ci NOT NULL,
   `odpPomocnicza` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `rola` varchar(15) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `użytkownicy`
+-- Zrzut danych tabeli `uzytkownicy`
 --
 
-INSERT INTO `użytkownicy` (`id`, `imie`, `nazwisko`, `login`, `hasło`, `pytPomocnicze`, `odpPomocnicza`, `rola`) VALUES
+INSERT INTO `uzytkownicy` (`id`, `imie`, `nazwisko`, `login`, `haslo`, `pytPomocnicze`, `odpPomocnicza`, `rola`) VALUES
 (1, 'Mateusz', 'Szczygielski', 'mati', 'mati', 'Ocena z IPR', '2', 'właściciel'),
 (2, 'Andrzej', 'Daniel', 'dan', 'dan', 'Ocena z IPR', '2', 'właściciel'),
 (3, 'Andrzej', 'Nowak', 'and', 'and', 'Ocena z IPR', '2', 'lokator'),
@@ -294,37 +294,37 @@ INSERT INTO `użytkownicy` (`id`, `imie`, `nazwisko`, `login`, `hasło`, `pytPom
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `użytkownicy_lokale`
+-- Struktura tabeli dla tabeli `uzytkownicy_lokale`
 --
 
-CREATE TABLE `użytkownicy_lokale` (
-  `idUżytkownika` int(11) NOT NULL,
+CREATE TABLE `uzytkownicy_lokale` (
+  `idUzytkownika` int(11) NOT NULL,
   `idLokalu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `użytkownicy_lokale`
+-- Zrzut danych tabeli `uzytkownicy_lokale`
 --
 
-INSERT INTO `użytkownicy_lokale` (`idUżytkownika`, `idLokalu`) VALUES
+INSERT INTO `uzytkownicy_lokale` (`idUzytkownika`, `idLokalu`) VALUES
 (1, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `użytkownicy_mieszkania`
+-- Struktura tabeli dla tabeli `uzytkownicy_mieszkania`
 --
 
-CREATE TABLE `użytkownicy_mieszkania` (
-  `idUżytkownika` int(11) NOT NULL,
+CREATE TABLE `uzytkownicy_mieszkania` (
+  `idUzytkownika` int(11) NOT NULL,
   `idMieszkania` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `użytkownicy_mieszkania`
+-- Zrzut danych tabeli `uzytkownicy_mieszkania`
 --
 
-INSERT INTO `użytkownicy_mieszkania` (`idUżytkownika`, `idMieszkania`) VALUES
+INSERT INTO `uzytkownicy_mieszkania` (`idUzytkownika`, `idMieszkania`) VALUES
 (2, 7),
 (3, 13),
 (4, 4),
@@ -334,20 +334,20 @@ INSERT INTO `użytkownicy_mieszkania` (`idUżytkownika`, `idMieszkania`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `wspólnoty_mieszkaniowe`
+-- Struktura tabeli dla tabeli `wspolnoty_mieszkaniowe`
 --
 
-CREATE TABLE `wspólnoty_mieszkaniowe` (
+CREATE TABLE `wspolnoty_mieszkaniowe` (
   `id` int(11) NOT NULL,
   `nrKontaBankowego` varchar(26) COLLATE utf8_polish_ci NOT NULL,
   `nazwa` varchar(25) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `wspólnoty_mieszkaniowe`
+-- Zrzut danych tabeli `wspolnoty_mieszkaniowe`
 --
 
-INSERT INTO `wspólnoty_mieszkaniowe` (`id`, `nrKontaBankowego`, `nazwa`) VALUES
+INSERT INTO `wspolnoty_mieszkaniowe` (`id`, `nrKontaBankowego`, `nazwa`) VALUES
 (1, '23109028510000000137332879', 'Sąsiedzi'),
 (2, '89116022020000000354915315', 'Bliźniak');
 
@@ -359,7 +359,7 @@ INSERT INTO `wspólnoty_mieszkaniowe` (`id`, `nrKontaBankowego`, `nazwa`) VALUES
 
 CREATE TABLE `wydatki` (
   `id` int(11) NOT NULL,
-  `idPlanuWydatków` int(11) NOT NULL,
+  `idPlanuWydatkow` int(11) NOT NULL,
   `idUsterki` int(11) DEFAULT NULL,
   `dataRealizacji` date NOT NULL,
   `kwota` int(6) NOT NULL,
@@ -370,7 +370,7 @@ CREATE TABLE `wydatki` (
 -- Zrzut danych tabeli `wydatki`
 --
 
-INSERT INTO `wydatki` (`id`, `idPlanuWydatków`, `idUsterki`, `dataRealizacji`, `kwota`, `opis`) VALUES
+INSERT INTO `wydatki` (`id`, `idPlanuWydatkow`, `idUsterki`, `dataRealizacji`, `kwota`, `opis`) VALUES
 (1, 1, NULL, '2020-02-02', 50, 'Koszenie trawy'),
 (2, 1, NULL, '2019-12-03', 50, 'Koszenie trawy'),
 (3, 4, NULL, '2020-02-02', 50, 'Odśnieżanie'),
@@ -393,14 +393,14 @@ ALTER TABLE `adresy`
 --
 ALTER TABLE `budynki`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idWspólnoty` (`idWspólnoty`);
+  ADD KEY `idWspólnoty` (`idWspolnoty`);
 
 --
--- Indeksy dla tabeli `budżety`
+-- Indeksy dla tabeli `budzety`
 --
-ALTER TABLE `budżety`
+ALTER TABLE `budzety`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idWspólnoty` (`idWspólnoty`);
+  ADD KEY `idWspólnoty` (`idWspolnoty`);
 
 --
 -- Indeksy dla tabeli `czynsze_lokalowe`
@@ -408,7 +408,7 @@ ALTER TABLE `budżety`
 ALTER TABLE `czynsze_lokalowe`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idLokalu` (`idLokalu`),
-  ADD KEY `idBudżetu` (`idBudżetu`);
+  ADD KEY `idBudżetu` (`idBudzetu`);
 
 --
 -- Indeksy dla tabeli `czynsze_mieszkaniowe`
@@ -416,7 +416,7 @@ ALTER TABLE `czynsze_lokalowe`
 ALTER TABLE `czynsze_mieszkaniowe`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idMieszkania` (`idMieszkania`),
-  ADD KEY `idBudżetu` (`idBudżetu`);
+  ADD KEY `idBudżetu` (`idBudzetu`);
 
 --
 -- Indeksy dla tabeli `kategorie`
@@ -443,7 +443,7 @@ ALTER TABLE `mieszkania`
 --
 ALTER TABLE `plan_wydatku`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idBudżetu` (`idBudżetu`) USING BTREE,
+  ADD KEY `idBudżetu` (`idBudzetu`) USING BTREE,
   ADD KEY `idKategorii` (`idKategorii`) USING BTREE;
 
 --
@@ -451,33 +451,33 @@ ALTER TABLE `plan_wydatku`
 --
 ALTER TABLE `usterki`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idUżytkownika` (`idUżytkownika`),
+  ADD KEY `idUżytkownika` (`idUzytkownika`),
   ADD KEY `idBudynku` (`idBudynku`);
 
 --
--- Indeksy dla tabeli `użytkownicy`
+-- Indeksy dla tabeli `uzytkownicy`
 --
-ALTER TABLE `użytkownicy`
+ALTER TABLE `uzytkownicy`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `użytkownicy_lokale`
+-- Indeksy dla tabeli `uzytkownicy_lokale`
 --
-ALTER TABLE `użytkownicy_lokale`
-  ADD KEY `idUżytkownika` (`idUżytkownika`),
+ALTER TABLE `uzytkownicy_lokale`
+  ADD KEY `idUżytkownika` (`idUzytkownika`),
   ADD KEY `idLokalu` (`idLokalu`);
 
 --
--- Indeksy dla tabeli `użytkownicy_mieszkania`
+-- Indeksy dla tabeli `uzytkownicy_mieszkania`
 --
-ALTER TABLE `użytkownicy_mieszkania`
-  ADD KEY `idUżytkownika` (`idUżytkownika`),
+ALTER TABLE `uzytkownicy_mieszkania`
+  ADD KEY `idUżytkownika` (`idUzytkownika`),
   ADD KEY `idMieszkania` (`idMieszkania`);
 
 --
--- Indeksy dla tabeli `wspólnoty_mieszkaniowe`
+-- Indeksy dla tabeli `wspolnoty_mieszkaniowe`
 --
-ALTER TABLE `wspólnoty_mieszkaniowe`
+ALTER TABLE `wspolnoty_mieszkaniowe`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -486,7 +486,7 @@ ALTER TABLE `wspólnoty_mieszkaniowe`
 ALTER TABLE `wydatki`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUsterki` (`idUsterki`),
-  ADD KEY `idPlanuWydatków` (`idPlanuWydatków`) USING BTREE;
+  ADD KEY `idPlanuWydatków` (`idPlanuWydatkow`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -499,9 +499,9 @@ ALTER TABLE `budynki`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT dla tabeli `budżety`
+-- AUTO_INCREMENT dla tabeli `budzety`
 --
-ALTER TABLE `budżety`
+ALTER TABLE `budzety`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -547,15 +547,15 @@ ALTER TABLE `usterki`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT dla tabeli `użytkownicy`
+-- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
-ALTER TABLE `użytkownicy`
+ALTER TABLE `uzytkownicy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT dla tabeli `wspólnoty_mieszkaniowe`
+-- AUTO_INCREMENT dla tabeli `wspolnoty_mieszkaniowe`
 --
-ALTER TABLE `wspólnoty_mieszkaniowe`
+ALTER TABLE `wspolnoty_mieszkaniowe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -578,26 +578,26 @@ ALTER TABLE `adresy`
 -- Ograniczenia dla tabeli `budynki`
 --
 ALTER TABLE `budynki`
-  ADD CONSTRAINT `budynki_ibfk_1` FOREIGN KEY (`idWspólnoty`) REFERENCES `wspólnoty_mieszkaniowe` (`id`);
+  ADD CONSTRAINT `budynki_ibfk_1` FOREIGN KEY (`idWspolnoty`) REFERENCES `wspolnoty_mieszkaniowe` (`id`);
 
 --
--- Ograniczenia dla tabeli `budżety`
+-- Ograniczenia dla tabeli `budzety`
 --
-ALTER TABLE `budżety`
-  ADD CONSTRAINT `budżety_ibfk_1` FOREIGN KEY (`idWspólnoty`) REFERENCES `wspólnoty_mieszkaniowe` (`id`);
+ALTER TABLE `budzety`
+  ADD CONSTRAINT `budzety_ibfk_1` FOREIGN KEY (`idWspolnoty`) REFERENCES `wspolnoty_mieszkaniowe` (`id`);
 
 --
 -- Ograniczenia dla tabeli `czynsze_lokalowe`
 --
 ALTER TABLE `czynsze_lokalowe`
   ADD CONSTRAINT `czynsze_lokalowe_ibfk_1` FOREIGN KEY (`idLokalu`) REFERENCES `lokale` (`id`),
-  ADD CONSTRAINT `czynsze_lokalowe_ibfk_2` FOREIGN KEY (`idBudżetu`) REFERENCES `budżety` (`id`);
+  ADD CONSTRAINT `czynsze_lokalowe_ibfk_2` FOREIGN KEY (`idBudzetu`) REFERENCES `budzety` (`id`);
 
 --
 -- Ograniczenia dla tabeli `czynsze_mieszkaniowe`
 --
 ALTER TABLE `czynsze_mieszkaniowe`
-  ADD CONSTRAINT `czynsze_mieszkaniowe_ibfk_2` FOREIGN KEY (`idBudżetu`) REFERENCES `budżety` (`id`),
+  ADD CONSTRAINT `czynsze_mieszkaniowe_ibfk_2` FOREIGN KEY (`idBudzetu`) REFERENCES `budzety` (`id`),
   ADD CONSTRAINT `czynsze_mieszkaniowe_ibfk_3` FOREIGN KEY (`idMieszkania`) REFERENCES `mieszkania` (`id`);
 
 --
@@ -616,36 +616,36 @@ ALTER TABLE `mieszkania`
 -- Ograniczenia dla tabeli `plan_wydatku`
 --
 ALTER TABLE `plan_wydatku`
-  ADD CONSTRAINT `plan_wydatku_ibfk_1` FOREIGN KEY (`idBudżetu`) REFERENCES `budżety` (`id`),
+  ADD CONSTRAINT `plan_wydatku_ibfk_1` FOREIGN KEY (`idBudzetu`) REFERENCES `budzety` (`id`),
   ADD CONSTRAINT `plan_wydatku_ibfk_2` FOREIGN KEY (`idKategorii`) REFERENCES `kategorie` (`id`);
 
 --
 -- Ograniczenia dla tabeli `usterki`
 --
 ALTER TABLE `usterki`
-  ADD CONSTRAINT `usterki_ibfk_1` FOREIGN KEY (`idUżytkownika`) REFERENCES `użytkownicy` (`id`),
+  ADD CONSTRAINT `usterki_ibfk_1` FOREIGN KEY (`idUzytkownika`) REFERENCES `uzytkownicy` (`id`),
   ADD CONSTRAINT `usterki_ibfk_2` FOREIGN KEY (`idBudynku`) REFERENCES `budynki` (`id`);
 
 --
--- Ograniczenia dla tabeli `użytkownicy_lokale`
+-- Ograniczenia dla tabeli `uzytkownicy_lokale`
 --
-ALTER TABLE `użytkownicy_lokale`
-  ADD CONSTRAINT `użytkownicy_lokale_ibfk_1` FOREIGN KEY (`idUżytkownika`) REFERENCES `użytkownicy` (`id`),
-  ADD CONSTRAINT `użytkownicy_lokale_ibfk_2` FOREIGN KEY (`idLokalu`) REFERENCES `lokale` (`id`);
+ALTER TABLE `uzytkownicy_lokale`
+  ADD CONSTRAINT `uzytkownicy_lokale_ibfk_1` FOREIGN KEY (`idUzytkownika`) REFERENCES `uzytkownicy` (`id`),
+  ADD CONSTRAINT `uzytkownicy_lokale_ibfk_2` FOREIGN KEY (`idLokalu`) REFERENCES `lokale` (`id`);
 
 --
--- Ograniczenia dla tabeli `użytkownicy_mieszkania`
+-- Ograniczenia dla tabeli `uzytkownicy_mieszkania`
 --
-ALTER TABLE `użytkownicy_mieszkania`
-  ADD CONSTRAINT `użytkownicy_mieszkania_ibfk_1` FOREIGN KEY (`idUżytkownika`) REFERENCES `użytkownicy` (`id`),
-  ADD CONSTRAINT `użytkownicy_mieszkania_ibfk_2` FOREIGN KEY (`idMieszkania`) REFERENCES `mieszkania` (`id`);
+ALTER TABLE `uzytkownicy_mieszkania`
+  ADD CONSTRAINT `uzytkownicy_mieszkania_ibfk_1` FOREIGN KEY (`idUzytkownika`) REFERENCES `uzytkownicy` (`id`),
+  ADD CONSTRAINT `uzytkownicy_mieszkania_ibfk_2` FOREIGN KEY (`idMieszkania`) REFERENCES `mieszkania` (`id`);
 
 --
 -- Ograniczenia dla tabeli `wydatki`
 --
 ALTER TABLE `wydatki`
   ADD CONSTRAINT `wydatki_ibfk_1` FOREIGN KEY (`idUsterki`) REFERENCES `usterki` (`id`),
-  ADD CONSTRAINT `wydatki_ibfk_2` FOREIGN KEY (`idPlanuWydatków`) REFERENCES `plan_wydatku` (`id`);
+  ADD CONSTRAINT `wydatki_ibfk_2` FOREIGN KEY (`idPlanuWydatkow`) REFERENCES `plan_wydatku` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
