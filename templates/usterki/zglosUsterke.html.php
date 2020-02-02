@@ -20,27 +20,19 @@
 
     <div class="container"  style="width: 70%; position: absolute; left: 300px;">
 
-  <div class="alert alert-success">
-    <strong>Sukces!</strong> Poprawnie wykonana operacja.
-  </div>
-
-  <div class="alert alert-warning">
-    <strong>Błąd</strong> Wystąpił błąd zwiazany wczytaniem danych.
-  </div>
-
   <center>  <h2> Zgłaszanie usterki</h> </center>
 
-    <form action="functions/zloz-reklamacje.php?<?php echo $string_pom ?>" method="post">
+  <form action="?task=usterki&action=zglosUsterkePerform" method="post">
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Temat</label>
         <div class="col-4">
-          <input class="form-control" type="text" placeholder="Podaj temat usterki">
+          <input class="form-control" name="temat" type="text" placeholder="Podaj temat usterki">
         </div>
       </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Dokładny adres</label>
       <div class="col-4">
-     <textarea class="form-control" name="opis" rows="3" placeholder="Podaj adres"></textarea>
+     <textarea class="form-control" name="adres" rows="3" placeholder="Podaj adres"></textarea>
       </div>
     </div>
       <div class="form-group row">

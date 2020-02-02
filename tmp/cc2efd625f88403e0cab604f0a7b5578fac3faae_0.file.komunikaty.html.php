@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 13:55:20
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:38:50
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\includes\komunikaty.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36c6b816fbd7_06039373',
+  'unifunc' => 'content_5e36ed0a855a79_67280919',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cc2efd625f88403e0cab604f0a7b5578fac3faae' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\includes\\komunikaty.html',
-      1 => 1580648118,
+      1 => 1580650741,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e36c6b816fbd7_06039373 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36ed0a855a79_67280919 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -32,7 +32,7 @@ function content_5e36c6b816fbd7_06039373 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
-    <div style="width: 70%; padding-left: 40%; padding-bottom: 50px;">
+    <div style="padding-left: 20%; padding-bottom: 50px;">
 
         <div class="alert alert-success">
             <strong>Sukces!</strong> Poprawnie wykonana operacja.

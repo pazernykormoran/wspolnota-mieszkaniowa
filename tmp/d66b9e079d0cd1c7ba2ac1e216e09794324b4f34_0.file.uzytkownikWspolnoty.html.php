@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 13:58:14
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:38:50
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\includes\uzytkownikWspolnoty.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36c766055790_70742133',
+  'unifunc' => 'content_5e36ed0a872c09_08496092',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd66b9e079d0cd1c7ba2ac1e216e09794324b4f34' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\includes\\uzytkownikWspolnoty.html',
-      1 => 1580643097,
+      1 => 1580657769,
       2 => 'file',
     ),
   ),
@@ -20,15 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e36c766055790_70742133 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36ed0a872c09_08496092 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="vertical-menu">
     <div class = "menuSection">
         Panel użytkownika wspólnoty
     </div>
-    <a href="#">Zgłoś usterke</a>
-    <a href="#">Postępy pracy</a>
-    <a href="#">Plan budżetowy</a>
-    <a href="#">Przeglądaj zgłoszenia usterki</a>
+    <a href="?task=usterki&action=zglosUsterke">Zgłoś usterke</a>
+    <a href="?task=budzet&action=przegladajBudzet">Aktualny budżet</a>
+    <a href="?task=budzet&action=przegladajPlanBudzetowy">Plan budżetowy</a>
+    <a href="?task=usterki&action=przegladajUsterki">Przeglądaj zgłoszenia usterki</a>
+
   </div>
 
   <style>
@@ -40,7 +41,6 @@ function content_5e36c766055790_70742133 (Smarty_Internal_Template $_smarty_tpl)
   background-color: #eee; /* Grey background color */
   color: black; /* Black text color */
   display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
   text-decoration: none; /* Remove underline from links */
 }
 

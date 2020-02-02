@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:35:00
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:57:06
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\przegladajPlanBudzetowy.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36ec24e9b621_47376051',
+  'unifunc' => 'content_5e36f15200b212_40672652',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '95dbfeb3eeb601f12daaeb4660a3b0516ebcb874' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\budzet\\przegladajPlanBudzetowy.html.php',
-      1 => 1580657696,
+      1 => 1580659023,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e36ec24e9b621_47376051 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36f15200b212_40672652 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -64,7 +64,7 @@ $_smarty_tpl->_subTemplateRender('file:includes/uzytkownikWspolnoty.html', $_sma
             
                       <tr>
                         <th scope="row">1</th>
-                        <td><a href="ForgottenPassword.html">Czynsze mieszkaniowe</a></td>
+                        <td>sddsads</td>
                         <td>213</td>
                       </tr>
                       <tr>
@@ -107,7 +107,7 @@ $_smarty_tpl->_subTemplateRender('file:includes/uzytkownikWspolnoty.html', $_sma
             
                       <tr>
                         <th scope="row">1</th>
-                        <td>Remont budynku</td>
+                        <td><a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1"> Remont budynku</td>
                         <td>Remonty</td>
                         <td>212133</td>
                       </tr>

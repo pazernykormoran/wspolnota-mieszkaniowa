@@ -1,26 +1,29 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 12:36:30
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:55:04
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\elementBudzetu.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36b43e8fb851_09640251',
+  'unifunc' => 'content_5e36f0d80aace0_50314708',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7ca759603fb4749c68e8d81c0ccc084cac0862d7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\budzet\\elementBudzetu.html.php',
-      1 => 1580643115,
+      1 => 1580650732,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:includes/komunikaty.html' => 1,
+    'file:includes/menuUzytkownik.html' => 1,
+    'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e36b43e8fb851_09640251 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36f0d80aace0_50314708 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -32,9 +35,20 @@ function content_5e36b43e8fb851_09640251 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
-    <div class="container" style="width: 70%; position: absolute; right: 0px;">
+<div>
+<?php $_smarty_tpl->_subTemplateRender('file:includes/komunikaty.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+</div>
+
+<div class="container" style="width: 30%; position: absolute; left: 0px;">
+<?php $_smarty_tpl->_subTemplateRender('file:includes/menuUzytkownik.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+$_smarty_tpl->_subTemplateRender('file:includes/uzytkownikWspolnoty.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+</div>
+
+    <div class="container"  style="width: 70%; position: absolute; left: 300px;">
   
-    <span class="d-block p-2 bg-primary text-white">Nazwa budżetu</span>
+    <span class="d-block p-2 bg-primary text-white">Szczegóły wydatku</span>
 
 
     <div class="container" style="padding-top: 30px;">
@@ -43,11 +57,6 @@ function content_5e36b43e8fb851_09640251 (Smarty_Internal_Template $_smarty_tpl)
         <div class="col-3">
           <label class="form-label">Kategoria:</label>
           <input class="form-control" type="text" value = "fdasd" readonly>
-        </div>
-
-        <div class="col-3">
-          <label class="form-label">Usługi:</label>
-          <input class="form-control" type="text" value = "1003" readonly>
         </div>
 
         <div class="col-3">
@@ -66,7 +75,7 @@ function content_5e36b43e8fb851_09640251 (Smarty_Internal_Template $_smarty_tpl)
 
     <div style="padding-top: 50px;">
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label" placeholder="Podaj opis usterki">Opis usterki</label>
+        <label class="col-sm-2 col-form-label">Opis</label>
         <div class="col-7">
        <textarea class="form-control" name="opis" rows="6" readonly></textarea>
         </div>

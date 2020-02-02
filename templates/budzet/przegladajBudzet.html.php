@@ -36,7 +36,7 @@
             
                       <tr>
                         <th scope="row">1</th>
-                        <td><a href="ForgottenPassword.html">Czynsze mieszkaniowe</a></td>
+                        <td>213</td>
                         <td>213</td>
                       </tr>
                       <tr>
@@ -79,7 +79,7 @@
             
                       <tr>
                         <th scope="row">1</th>
-                        <td>Remont budynku</td>
+                        <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1">Aktualny budżet</a> </td>
                         <td>Remonty</td>
                         <td>212133</td>
                       </tr>
