@@ -19,14 +19,14 @@ if(isset($_GET['task'])){
         include 'controller/usterki.php';
         $ob = new UsterkiController();
         if(!$ob->sprawdzCzyZalogowany()){
-            $this->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
+            $ob->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
         }
         callAction($ob);
     }else if($_GET['task']=='budzet') {
         include 'controller/budzet.php';
         $ob = new BudzetController();
         if(!$ob->sprawdzCzyZalogowany()){
-            $this->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
+            $ob->redirect('?task=aplikacja&action=logowanie&error=Użytkownik nie jest zalogowany');
         }
         callAction($ob);
     }
