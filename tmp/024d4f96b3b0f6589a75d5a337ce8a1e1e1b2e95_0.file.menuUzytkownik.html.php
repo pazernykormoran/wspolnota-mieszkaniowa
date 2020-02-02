@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 16:38:50
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:03:31
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\includes\menuUzytkownik.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36ed0a863f72_80572537',
+  'unifunc' => 'content_5e36f2d31ca590_61759248',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e36ed0a863f72_80572537 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e36f2d31ca590_61759248 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="vertical-menu">
     <div class = "menuSection">
         Menu
