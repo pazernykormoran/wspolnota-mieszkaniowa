@@ -10,7 +10,7 @@ class UsterkiModel extends Model{
     public function zglosUsterkePerform($postArray) {
          
 
-        if(isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
+        if(czyTworzonaUsterkaJestKompletna()) {
       
           $usterka = new Usterka(null, date("Y/m/d"),"Zgloszono",$postArray['temat'],$postArray['opis'],$postArray['adres'],$_SESSION['uzytkownik'],$_SESSION['idWspolnoty']);
           $this->dodajUsterke($usterka);
@@ -64,6 +64,15 @@ class UsterkiModel extends Model{
 
         }
         //zwraca usterke klasy Usterka
+    }
+
+    private function czyTworzonaUsterkaJestKompletna() {
+        if (isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }
