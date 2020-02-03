@@ -9,14 +9,107 @@ include 'classes/Kategoria.php';
 
 class BudzetModel extends Model{
 
-    public function pobierzDochodyRoczneZMieszkan() {
-        
-        //zwraca liczbe;
+    public function pobierzAktualneDochodyRoczneZMieszkan() {
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT DISTINCT id, typ
+        From budzety
+        Where typ = 'aktualny' AND idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $idBudzetu = $row["id"];
+        }
+
+        $query="SELECT cz_m.kwota, cz_m.idBudzetu
+        From czynsze_mieszkaniowe AS cz_m
+        Where cz_m.idBudzetu = '".$idBudzetu."'";
+        $select=$this->pdo->query($query);
+
+        $suma = 0;
+        foreach ($select as $row) {
+            $suma = $suma + $row["kwota"];
+        }
+        return $suma;
     }
-    public function pobierzDochodyRoczneZLokali() {
-        
-        //zwraca liczbe;
+    public function pobierzAktualneDochodyRoczneZLokali() {
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT DISTINCT id, typ
+        From budzety
+        Where typ = 'aktualny' AND idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $idBudzetu = $row["id"];
+        }
+
+        $query="SELECT cz_m.kwota, cz_m.idBudzetu
+        From czynsze_lokalowe AS cz_m
+        Where cz_m.idBudzetu = '".$idBudzetu."'";
+        $select=$this->pdo->query($query);
+
+        $suma = 0;
+        foreach ($select as $row) {
+            $suma = $suma + $row["kwota"];
+        }
+        return $suma;
     }
+
+    public function pobierzWszystkieDochodyZMieszkan() {
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT m.czynsz AS czynsz_mieszkaniowy, m.idBudynku, b.id, b.idWspolnoty , wm.id
+        From mieszkania AS m
+        LEFT JOIN `budynki` as b
+        ON m.idBudynku = b.id
+        LEFT JOIN `wspolnoty_mieszkaniowe` as wm
+        ON b.idWspolnoty = wm.id
+        WHERE idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        $suma = 0;
+        foreach ($select as $row) {
+            $suma = $suma + 12 * $row["czynsz_mieszkaniowy"];
+        }
+        return $suma;
+    }
+
+    public function pobierzWszystkieDochodyZLokali() {
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT l.czynsz AS czynsz_lokalowy, l.idBudynku, b.id, b.idWspolnoty , wm.id
+        From lokale AS l
+        LEFT JOIN `budynki` as b
+        ON l.idBudynku = b.id
+        LEFT JOIN `wspolnoty_mieszkaniowe` as wm
+        ON b.idWspolnoty = wm.id
+        WHERE idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        $suma = 0;
+        foreach ($select as $row) {
+            $suma = $suma + 12 * $row["czynsz_lokalowy"];
+        }
+        return $suma;
+    }
+
+    public function pobierzAktualneWyplywy() {
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT DISTINCT id, typ
+        From budzety
+        Where typ = 'aktualny' AND idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $idBudzetu = $row["id"];
+        }
+
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT w.kwota AS kwota_w, w.idPlanuWydatkow, pw.id, pw.idBudzetu
+        From wydatki AS w
+        LEFT JOIN `plan_wydatku` as pw
+        ON w.idPlanuWydatkow = pw.id
+        WHERE pw.idBudzetu='".$idBudzetu."'";
+        $select=$this->pdo->query($query);
+        $suma = 0;
+        foreach ($select as $row) {
+            $suma = $suma + $row["kwota_w"];
+        }
+        return $suma;
+    }
+
     public function pobierzBudzet($typ) {
         $idWspolnoty=$_SESSION['idWspolnoty'];
         $query="SELECT DISTINCT id,idWspolnoty,rokRozliczeniowy, typ
