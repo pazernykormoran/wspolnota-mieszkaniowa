@@ -11,7 +11,7 @@
 
 <body>
 
-
+<!-- 
 {if isset($budzetArray)}
   {foreach from=$budzetArray item=budzetElement}
     tutaj wyświetlam sobie id Budżetu:
@@ -25,13 +25,13 @@
     {/foreach}
 
   {/foreach}
-{/if}
+{/if} -->
 
 
 
 
 <div>
-{include file='includes/komunikaty.html'}
+{include file='includes/komunikaty.html' info=$info error=$error}
 </div>
 
 <div class="container" style="width: 30%; position: absolute; left: 0px;"  class="center">
