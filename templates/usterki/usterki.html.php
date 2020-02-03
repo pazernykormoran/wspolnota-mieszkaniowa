@@ -48,6 +48,7 @@
            </tbody>
          </table>
 
+         <button type="button" onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
 
 
        </div>
