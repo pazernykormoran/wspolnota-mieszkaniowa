@@ -116,25 +116,13 @@
 
      <div style=" position: absolute; right: 100px;">
 
-
-       <div class="form-group row">
-         <label class="col-4 col-form-label">Twój czynsz</label>
-         <div class="col-8">
-           <input class="form-control" type="number" value="1000" readonly>
-         </div>
-       </div>
-
-       <div style="padding-top: 30px;">
-         <button type="button" onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
-       </div>
-
      </div>
 
 
 
 
 
-     <div class="container" style="padding-top: 200px">
+     <div class="container" style="padding-top: 50px">
        <h2>Czynsze</h2>
 
        <div class="col">
@@ -181,6 +169,10 @@
          </div>
        </div>
      </div>
+
+     <div style="padding-top: 30px;">
+         <button type="button" onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
+       </div>
 
 
    </div>

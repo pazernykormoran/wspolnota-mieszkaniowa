@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-03 06:58:28
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 07:07:50
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\przegladajBudzet.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e37b6844c4448_36648448',
+  'unifunc' => 'content_5e37b8b60d8b96_91188435',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2abad82d86a77f62884bf150b6ad3b1069cc8ea4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\budzet\\przegladajBudzet.html.php',
-      1 => 1580709505,
+      1 => 1580710068,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e37b6844c4448_36648448 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e37b8b60d8b96_91188435 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -168,25 +168,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
      <div style=" position: absolute; right: 100px;">
 
-
-       <div class="form-group row">
-         <label class="col-4 col-form-label">Twój czynsz</label>
-         <div class="col-8">
-           <input class="form-control" type="number" value="1000" readonly>
-         </div>
-       </div>
-
-       <div style="padding-top: 30px;">
-         <button type="button" onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
-       </div>
-
      </div>
 
 
 
 
 
-     <div class="container" style="padding-top: 200px">
+     <div class="container" style="padding-top: 50px">
        <h2>Czynsze</h2>
 
        <div class="col">
@@ -259,6 +247,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
          </div>
        </div>
      </div>
+
+     <div style="padding-top: 30px;">
+         <button type="button" onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
+       </div>
 
 
    </div>
