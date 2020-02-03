@@ -99,7 +99,7 @@ class UsterkiModel extends Model{
     }
 
     private function czyTworzonaUsterkaJestKompletna($postArray) {
-        if (isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
+        if (isset($postArray['temat']) && $postArray['temat'] != null &&isset($postArray['adres']) && $postArray['adres'] != null && isset($postArray['opis']) && $postArray['opis'] != null && $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
             return true;
         }
         else {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:03:31
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 04:08:10
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\aplikacja\logowanie.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36f2d327b011_80567146',
+  'unifunc' => 'content_5e378e9a69b146_97339902',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2ca05847320030bb9a05f41c67ed303af7b5510d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\aplikacja\\logowanie.html.php',
-      1 => 1580648566,
+      1 => 1580698845,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e36f2d327b011_80567146 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e378e9a69b146_97339902 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -342,16 +342,24 @@ input[type=password]:placeholder {
 
     <!-- Login Form -->
     <form action="?task=aplikacja&action=logowanieValidate" method="post">
+    <?php if ($_smarty_tpl->tpl_vars['info']->value) {?>
+          <div class="alert alert-success">
+            <?php echo $_smarty_tpl->tpl_vars['info']->value;?>
+
+          </div>
+        <?php }?>
       <h2>Logowanie</h2>
+      
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
       <input type="password" id="password" class="fadeIn third" name="haslo" placeholder="haslo">
 
-      <?php if (isset($_smarty_tpl->tpl_vars['error']->value) && $_smarty_tpl->tpl_vars['error']->value != '') {?>
+      <?php if ($_smarty_tpl->tpl_vars['error']->value) {?>
           <div class="alert alert-danger">
             <strong>Błąd!</strong> <?php echo $_smarty_tpl->tpl_vars['error']->value;?>
 
           </div>
         <?php }?>
+
      
       <input type="submit" class="fadeIn fourth" value="Zaloguj">
       <br>
