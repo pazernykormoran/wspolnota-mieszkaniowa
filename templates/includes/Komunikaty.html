@@ -10,17 +10,16 @@
 <body>
 
     <div style="padding-left: 20%; padding-bottom: 50px;">
-
+     
+      {if $info}
         <div class="alert alert-success">
-            <strong>Sukces!</strong> Poprawnie wykonana operacja.
+          {$info}
           </div>
-        
+      {/if}
+      {if $error}
           <div class="alert alert-warning">
-            <strong>Błąd</strong> Wystąpił błąd zwiazany wczytaniem danych.
+            {$error}
           </div>
-              
+          {/if}     
         </div>
     
-
-</body>
-</html>

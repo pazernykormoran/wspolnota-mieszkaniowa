@@ -319,15 +319,22 @@ input[type=password]:placeholder {
 
     <!-- Login Form -->
     <form action="?task=aplikacja&action=logowanieValidate" method="post">
+    {if $info}
+          <div class="alert alert-success">
+            {$info}
+          </div>
+        {/if}
       <h2>Logowanie</h2>
+      
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
       <input type="password" id="password" class="fadeIn third" name="haslo" placeholder="haslo">
 
-      {if isset($error) && $error != ""}
+      {if $error}
           <div class="alert alert-danger">
             <strong>Błąd!</strong> {$error}
           </div>
         {/if}
+
      
       <input type="submit" class="fadeIn fourth" value="Zaloguj">
       <br>
