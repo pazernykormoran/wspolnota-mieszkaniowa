@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:03:31
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 04:08:03
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\includes\menuUzytkownik.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36f2d31ca590_61759248',
+  'unifunc' => 'content_5e378e93afaa39_70715817',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '024d4f96b3b0f6589a75d5a337ce8a1e1e1b2e95' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\includes\\menuUzytkownik.html',
-      1 => 1580657770,
+      1 => 1580698845,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e36f2d31ca590_61759248 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e378e93afaa39_70715817 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="vertical-menu">
     <div class = "menuSection">
         Menu
     </div>
     <a href="?task=aplikacja&action=zmienHaslo">Zmiana hasła</a>
+    <a href="?task=aplikacja&action=wyloguj">Wyloguj</a>
     <br>
   </div>
 

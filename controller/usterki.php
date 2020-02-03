@@ -14,7 +14,7 @@ class UsterkiController extends Controller{
         if($model->zglosUsterkePerform($_POST)){
             $this->redirect('?task=aplikacja&action=dashboard&info=Usterka została pomyślnie zgłoszona');
         }else{
-            $this->redirect('?task=aplikacja&action=dashboard&info=Błąd, nie udało się zgłosić usterki');
+            $this->redirect('?task=usterki&action=zglosUsterke&info=Błąd, nie podano wystaraczającej ilości danych');
         }
     }
 

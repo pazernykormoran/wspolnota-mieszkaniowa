@@ -15,6 +15,20 @@ class BudzetView extends View{
         //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
         $budzet=$budzetModel->pobierzBudzet('aktualny');
         $this->set('budzet',$budzet);
+
+        $sumaActM = $budzetModel->pobierzAktualneDochodyRoczneZMieszkan();
+        $sumaActL = $budzetModel->pobierzAktualneDochodyRoczneZLokali();
+        $this->set('sumaActM',$sumaActM);
+        $this->set('sumaActL',$sumaActL);
+
+        $wszystkieCzynszeM = $budzetModel->pobierzWszystkieDochodyZMieszkan();
+        $wszystkieCzynszeL = $budzetModel->pobierzWszystkieDochodyZLokali();
+        $this->set('wszystkieCzynszeM',$wszystkieCzynszeM);
+        $this->set('wszystkieCzynszeL',$wszystkieCzynszeL);
+
+        $actWplywy = $budzetModel->pobierzAktualneWyplywy();
+        $this->set('actWplywy',$actWplywy);
+
         $this->render('budzet/przegladajBudzet');
     }
 

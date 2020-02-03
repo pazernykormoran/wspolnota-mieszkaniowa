@@ -64,7 +64,11 @@
           <th scope="col">Data</th>
           <th scope="col">Opis</th>
           <th scope="col">Kwota</th>
-          <th scope="col">Usterka</th>
+          {foreach from=$elementBudzetu->getWydatki() item=wydatek}
+            {if $wydatek->getIdUsterki() != NULL}
+              <th scope="col">Usterka</th>
+            {/if}
+          {/foreach}
         </tr>
       </thead>
       <tbody>
@@ -75,7 +79,9 @@
                 <td>{$wydatek->getDataRealizacji()}</td>
                 <td>{$wydatek->getOpis()}</td>
                 <td>{$wydatek->getKwota()}</td>
-                <td><a href="?task=usterki&action=szczegolyUsterki&idUsterki={$wydatek->getIdUsterki()}">Usterka</a></td>
+                {if $wydatek->getIdUsterki() != NULL}
+                  <td><a href="?task=usterki&action=szczegolyUsterki&idUsterki={$wydatek->getIdUsterki()}">Usterka</a></td>
+                {/if}
               </tr>
               {$wydatek->getId()}
               {$wydatek->getDataRealizacji()}

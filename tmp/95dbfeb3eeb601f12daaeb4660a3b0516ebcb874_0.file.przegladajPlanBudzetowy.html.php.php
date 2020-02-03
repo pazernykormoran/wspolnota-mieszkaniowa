@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:03:31
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 02:44:12
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\przegladajPlanBudzetowy.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36f2d31ad506_21123126',
+  'unifunc' => 'content_5e377aec8cfe55_38799843',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '95dbfeb3eeb601f12daaeb4660a3b0516ebcb874' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\budzet\\przegladajPlanBudzetowy.html.php',
-      1 => 1580659023,
+      1 => 1580692737,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e36f2d31ad506_21123126 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e377aec8cfe55_38799843 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -104,24 +104,29 @@ $_smarty_tpl->_subTemplateRender('file:includes/uzytkownikWspolnoty.html', $_sma
                       </tr>
                     </thead>
                     <tbody>
-            
-                      <tr>
-                        <th scope="row">1</th>
-                        <td><a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1"> Remont budynku</td>
-                        <td>Remonty</td>
-                        <td>212133</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>KOszenie trawy</td>
-                        <td>2131</td>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>324234</td>
-                      </tr>
+                    <?php if (isset($_smarty_tpl->tpl_vars['budzet']->value)) {?>
+
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['budzet']->value->getPlanyWydatkow(), 'planwydatku');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['planwydatku']->value) {
+?>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td> <a href="?task=budzet&action=elementPlanuBudzetowego&idElementuPlanuBudzetowego=<?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getNazwa();?>
+</a> </td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getKategoria()->getNazwa();?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getKwota();?>
+</td>
+                        </tr>
+
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    <?php }?>
             
                     </tbody>
                   </table>
