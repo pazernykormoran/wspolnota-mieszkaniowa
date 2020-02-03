@@ -4,6 +4,7 @@
 include 'model/model.php';
 include 'classes/adres.php';
 include 'classes/usterka.php';
+include 'classes/budynek.php';
 
 class UsterkiModel extends Model{
 
@@ -52,14 +53,29 @@ class UsterkiModel extends Model{
         $ins->bindValue(':stanRealizacji', $usterka->getStanRealizacji(), PDO::PARAM_STR);
         $ins->execute();
     }
-    public function pobierzUsterki() {
+    public function pobierzUsterki($id) {
         //pobierz id wspolnoty z sesji 
         if(isset($_SESSION['idWspolnoty'])){
 
         }
-        //pobiera z bazy liste zgloszonych usterek dla danej wspolnoty
-        
-        //zwraca liste pobranych usterek klasy Usterka
+    
+        $query="SELECT u.temat,u.id, a.miejscowosc, a.nrMieszkania, a.ulica, a.kodPocztowy
+        From adresy as a
+        LEFT JOIN `usterki` as u
+        ON a.idZewnetrzne = u.idBudynku
+        LEFT JOIN budynki as b
+        ON b.id = u.idBudynku
+        WHERE b.idWspolnoty = ".$id;
+            
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $data[]=new Usterka($row["id"],null,null,$row["temat"],null, new Budynek(null, new Adres(null,$row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null), $id),null,$id );
+        }
+
+        $select->closeCursor();
+
+        return $data;
+
     }
     public function pobierzSzczegolyUsterki($id) {
         //pobiera z bazy usterke dla id wspolnoty mieszkaniowej oraz id usterki z parametru funkcji.

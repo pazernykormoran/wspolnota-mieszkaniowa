@@ -13,13 +13,13 @@ class UsterkiView extends View{
     public function  przegladajUsterki() {
         $this->setNecessery();
         $usterkiModel= $this->loadModel('usterki');
-        $this->set('adresy', $usterkiModel->pobierzUsterki());
+        $this->set('usterki', $usterkiModel->pobierzUsterki("1"));
         $this->render('usterki/usterki');
     }
     public function szczegolyUsterki($idUsterki) {
         $this->setNecessery();
         $usterkiModel=$this->loadModel('usterki');
-        $this->set('szczegolyUsterki',$usterkiModel->pobierzSzczegolyUsterki($idUsterki));
+      //  $this->set('szczegolyUsterki',$usterkiModel->pobierzSzczegolyUsterki($idUsterki));
         $this->render('usterki/szczegolyUsterki');
     }
 }
