@@ -12,7 +12,7 @@
 
 
   <div>
-    {include file='includes/komunikaty.html'}
+  {include file='includes/komunikaty.html' info=$info error=$error}
   </div>
 
   <div class="container" style="width: 30%; position: absolute; left: 0px;">
