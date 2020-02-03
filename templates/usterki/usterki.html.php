@@ -39,7 +39,7 @@
            {foreach $usterki as $usterka name=foo}  
              <tr>        
                <th scope="row">{$smarty.foreach.foo.iteration}</th>
-               <td><a href="?task=usterki&action=szczegolyUsterki&idUsterki=1">{$usterka->getTemat()}</a></td>
+               <td><a href="?task=usterki&action=szczegolyUsterki&idUsterki={$usterka->getId()}">{$usterka->getTemat()}</a></td>
                <td>{$usterka->getBudynek()->getAdres()->getMiejscowosc()} {$usterka->getBudynek()->getAdres()->getUlica()} {$usterka->getBudynek()->getAdres()->getUlica()} {$usterka->getBudynek()->getAdres()->getNumerMieszkania()} </td>                       
              </tr>
 

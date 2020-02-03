@@ -20,7 +20,7 @@ class UsterkiView extends View{
     public function szczegolyUsterki($idUsterki) {
         $this->setNecessery();
         $usterkiModel=$this->loadModel('usterki');
-      //  $this->set('szczegolyUsterki',$usterkiModel->pobierzSzczegolyUsterki($idUsterki));
+        $this->set('szczegolyUsterki', $usterkiModel->pobierzSzczegolyUsterki($idUsterki));
         $this->render('usterki/szczegolyUsterki');
     }
 }

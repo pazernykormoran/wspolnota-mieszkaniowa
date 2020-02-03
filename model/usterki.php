@@ -55,7 +55,7 @@ class UsterkiModel extends Model{
         if(isset($_SESSION['idWspolnoty'])){
 
         }
-        $id=2;
+
     
         $query="SELECT u.temat,u.id, a.miejscowosc, a.nrMieszkania, a.ulica, a.kodPocztowy
         From adresy as a
@@ -66,23 +66,36 @@ class UsterkiModel extends Model{
         WHERE b.idWspolnoty = ".$id;
             
         $select=$this->pdo->query($query);
-        $data;
+
         foreach ($select as $row) {
             $data[]=new Usterka($row["id"],null,null,$row["temat"],null, new Budynek(null, new Adres(null,$row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null), $id),null,$id );
         }
         //TODO ODSŁUGA jeśli nie ma usterek
 
-        $select->closeCursor();
 
         return $data;
 
     }
-    public function pobierzSzczegolyUsterki($id) {
-        //pobiera z bazy usterke dla id wspolnoty mieszkaniowej oraz id usterki z parametru funkcji.
-        if(isset($_SESSION['idWspolnoty'])&&isset($id)){
 
+    public function pobierzSzczegolyUsterki($id) {
+        $query="SELECT u.temat,u.id, u.opis, u.stan, u.dataZgloszenia, a.miejscowosc, a.nrMieszkania, a.ulica, a.kodPocztowy
+        From adresy as a
+        LEFT JOIN `usterki` as u
+        ON a.idZewnetrzne = u.idBudynku
+        LEFT JOIN budynki as b
+        ON b.id = u.idBudynku
+        WHERE u.id = ".$id;
+            
+        $select=$this->pdo->query($query);
+
+        foreach ($select as $row) {
+            $data[]=new Usterka($row["id"],$row["dataZgloszenia"],$row["stan"],$row["temat"],$row["opis"], new Budynek(null, new Adres(null,$row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null), $id),null,$id );
         }
-        //zwraca usterke klasy Usterka
+        //TODO ODSŁUGA jeśli nie ma usterek
+
+
+        return $data;
+
     }
 
     private function czyTworzonaUsterkaJestKompletna($postArray) {
