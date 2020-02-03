@@ -28,17 +28,17 @@
         
         <div class="col-3">
           <label class="form-label">Kategoria:</label>
-          <input class="form-control" type="text" value = "fdasd" readonly>
+          <input class="form-control" type="text" value = "{$elementBudzetu->getKategoria()->getNazwa()}" readonly>
         </div>
 
         <div class="col-3">
           <label class="form-label">Koszt:</label>
-          <input class="form-control" type="number" value = "1002" readonly>
+          <input class="form-control" type="number" value = "{$elementBudzetu->getKwota()}" readonly>
         </div>
 
         <div class="col-3">
           <label class="form-label">Częstotliwość (rocznie):</label>
-          <input class="form-control" type="text" value = "1003" readonly>
+          <input class="form-control" type="text" value = "{$elementBudzetu->getCzestotliwoscRoczna()}" readonly>
         </div>
 
       </div>
@@ -63,24 +63,25 @@
           <th scope="col">Numer</th>
           <th scope="col">Data</th>
           <th scope="col">Opis</th>
+          <th scope="col">Kwota</th>
+          <th scope="col">Usterka</th>
         </tr>
       </thead>
       <tbody>
+        {if isset($elementBudzetu->getWydatki())}
+            {foreach from=$elementBudzetu->getWydatki() item=wydatek}
+              <tr>
+                <th scope="row">{$wydatek->getId()}</th>
+                <td>{$wydatek->getDataRealizacji()}</td>
+                <td>{$wydatek->getOpis()}</td>
+                <td>{$wydatek->getKwota()}</td>
+                <td><a href="?task=usterki&action=szczegolyUsterki&idUsterki={$wydatek->getIdUsterki()}">Usterka</a></td>
+              </tr>
+              {$wydatek->getId()}
+              {$wydatek->getDataRealizacji()}
+            {/foreach}
+        {/if}
 
-        <tr>
-          <th scope="row">1</th>
-          <td>Remont budynku</td>
-          <td>Remonty</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Fundusz odtworzeniowy</td>
-          <td>KOszenie trawy</td>
-        <tr>
-          <th scope="row">3</th>
-          <td>Fundusz odtworzeniowy</td>
-          <td>Fundusz odtworzeniowy</td>
-        </tr>
 
       </tbody>
     </table>

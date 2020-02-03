@@ -37,7 +37,7 @@ class PlanWydatku{
     }
 
     public function getWydatki(){
-        return $this->wydatkid;
+        return $this->wydatki;
     }
 
     public function setWydatki($wydatki){

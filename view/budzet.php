@@ -20,15 +20,15 @@ class BudzetView extends View{
 
     public function elementBudzetu($id) {
         $this->setNecessery();
-        $usterkiModel=$this->loadModel('budzet');
+        $budzetModel=$this->loadModel('budzet');
 
-        //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane.
-
+        $elementBudzetu=$budzetModel->pobierzSzczegolyWydatkowBudzetu($id);
+        $this->set('elementBudzetu',$elementBudzetu);
         $this->render('budzet/elementBudzetu');
     }
     public function  przegladajPlanBudzetowy() {
         $this->setNecessery();
-        $usterkiModel= $this->loadModel('budzet');
+        $budzetModel= $this->loadModel('budzet');
 
         //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
 
@@ -37,7 +37,7 @@ class BudzetView extends View{
 
     public function elementPlanuBudzetowego($id) {
         $this->setNecessery();
-        $usterkiModel=$this->loadModel('budzet');
+        $budzetModel=$this->loadModel('budzet');
         
         //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
 
