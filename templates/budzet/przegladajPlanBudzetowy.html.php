@@ -104,7 +104,7 @@
       
 
         <div class="container" style="padding-top: 50px">
-       <h2>Czynsze</h2>
+       <h2>Twoje Czynsze</h2>
 
        <div class="col">
          <div>
