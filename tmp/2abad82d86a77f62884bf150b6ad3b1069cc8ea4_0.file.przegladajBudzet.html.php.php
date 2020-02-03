@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-02 17:03:42
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 02:44:11
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\przegladajBudzet.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e36f2de44b2c8_89836138',
+  'unifunc' => 'content_5e377aebd03ae7_83325261',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2abad82d86a77f62884bf150b6ad3b1069cc8ea4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\budzet\\przegladajBudzet.html.php',
-      1 => 1580658920,
+      1 => 1580692737,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e36f2de44b2c8_89836138 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e377aebd03ae7_83325261 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -93,6 +93,9 @@ $_smarty_tpl->_subTemplateRender('file:includes/uzytkownikWspolnoty.html', $_sma
 
           <div class="col">
 <h2>Wypływy</h2>
+
+
+
             <div>
                 <table class="table table-striped">
                     <thead>
@@ -104,24 +107,39 @@ $_smarty_tpl->_subTemplateRender('file:includes/uzytkownikWspolnoty.html', $_sma
                       </tr>
                     </thead>
                     <tbody>
-            
-                      <tr>
-                        <th scope="row">1</th>
-                        <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1">Aktualny budżet</a> </td>
-                        <td>Remonty</td>
-                        <td>212133</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>KOszenie trawy</td>
-                        <td>2131</td>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>324234</td>
-                      </tr>
+
+                    <?php if (isset($_smarty_tpl->tpl_vars['budzet']->value)) {?>
+                        <!-- tutaj wyświetlam sobie id Budżetu:
+                        <?php echo $_smarty_tpl->tpl_vars['budzet']->value->getId();?>
+ -->
+
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['budzet']->value->getPlanyWydatkow(), 'planwydatku');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['planwydatku']->value) {
+?>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=<?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getNazwa();?>
+</a> </td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getKategoria()->getNazwa();?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getKwota();?>
+</td>
+                        </tr>
+                          <!-- tutaj wyświetlam sobie id planu wydatku w budżecie:
+                          <?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getId();?>
+
+                          tutaj sobie id kategorii wysiwetlam
+                          <?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getKategoria()->getNazwa();?>
+ -->
+
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    <?php }?>
             
                     </tbody>
                   </table>

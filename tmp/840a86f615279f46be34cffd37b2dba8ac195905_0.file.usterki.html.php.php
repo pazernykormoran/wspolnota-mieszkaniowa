@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-03 02:17:03
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 02:59:44
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\usterki\usterki.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e37748f5ad272_85037905',
+  'unifunc' => 'content_5e377e909bf019_05542036',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '840a86f615279f46be34cffd37b2dba8ac195905' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\usterki\\usterki.html.php',
-      1 => 1580692616,
+      1 => 1580694954,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e37748f5ad272_85037905 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e377e909bf019_05542036 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
  <html lang="pl">
 
@@ -76,7 +76,8 @@ $_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration']++;
              <tr>        
                <th scope="row"><?php echo (isset($_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration'] : null);?>
 </th>
-               <td><a href="?task=usterki&action=szczegolyUsterki&idUsterki=1"><?php echo $_smarty_tpl->tpl_vars['usterka']->value->getTemat();?>
+               <td><a href="?task=usterki&action=szczegolyUsterki&idUsterki=<?php echo $_smarty_tpl->tpl_vars['usterka']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['usterka']->value->getTemat();?>
 </a></td>
                <td><?php echo $_smarty_tpl->tpl_vars['usterka']->value->getBudynek()->getAdres()->getMiejscowosc();?>
  <?php echo $_smarty_tpl->tpl_vars['usterka']->value->getBudynek()->getAdres()->getUlica();?>
