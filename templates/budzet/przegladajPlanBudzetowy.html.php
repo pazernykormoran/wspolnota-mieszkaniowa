@@ -36,18 +36,13 @@
             
                       <tr>
                         <th scope="row">1</th>
-                        <td>sddsads</td>
-                        <td>213</td>
+                        <td>Czynsze mieszkaniowe</td>
+                        <td>{$suma_wydatkow - $wszystkieCzynszeL}</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
                         <td>Czynsze lokalowe</td>
-                        <td>2131</td>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>324234</td>
-                      </tr>
+                        <td>{$wszystkieCzynszeL}</td>
             
                     </tbody>
                   </table>
@@ -55,7 +50,7 @@
                   <div class="form-group row" style ="float: right;">
                     <label class="col-sm-2 col-form-label">Razem</label>
                     <div class="col-10">
-                        <input class="form-control" type="text" value = "1000" readonly>
+                        <input class="form-control" type="text" value = "{$suma_wydatkow}" readonly>
                     </div>
                   </div>
             </div>
@@ -83,7 +78,7 @@
                           <th scope="row">1</th>
                           <td> <a href="?task=budzet&action=elementPlanuBudzetowego&idElementuPlanuBudzetowego={$planwydatku->getId()}">{$planwydatku->getNazwa()}</a> </td>
                           <td>{$planwydatku->getKategoria()->getNazwa()}</td>
-                          <td>{$planwydatku->getKwota()}</td>
+                          <td>{$planwydatku->getKwota() * $planwydatku->getCzestotliwoscRoczna()}</td>
                         </tr>
 
                         {/foreach}
@@ -95,7 +90,7 @@
                   <div class="form-group row" style ="float: right;">
                     <label class="col-sm-2 col-form-label">Razem</label>
                     <div class="col-10">
-                        <input class="form-control" type="text" value = "1000" readonly>
+                        <input class="form-control" type="text" value = "{$suma_wydatkow}" readonly>
                     </div>
                   </div>
                   

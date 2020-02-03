@@ -230,5 +230,82 @@ class BudzetModel extends Model{
         //zwraca tablice obiektow Kategoria;
     }
 
+    public function pobierzPlanowanaCeneRownomiernego($wszystkieCzynszeL) {
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT DISTINCT id, typ
+        From budzety
+        Where typ = 'planowany' AND idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $idBudzetu = $row["id"];
+        }
+
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT COUNT(*) as liczba_m
+        From mieszkania AS m
+        LEFT JOIN `budynki` as b
+        ON m.idBudynku = b.id
+        LEFT JOIN `wspolnoty_mieszkaniowe` as wm
+        ON b.idWspolnoty = wm.id
+        WHERE idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        $liczba_mieszkan = 0;
+        foreach ($select as $row) {
+            $liczba_mieszkan = $row["liczba_m"];
+        }
+
+        $query="SELECT DISTINCT a.id, a.idKategorii, a.czestotliwoscRoczna as r_cz, a.kwota as r_kwota, k.podzialkosztow
+        From plan_wydatku AS a, kategorie AS k
+        Where a.idBudzetu = '".$idBudzetu."' AND k.podzialkosztow = 'rownomierny'";
+        $select=$this->pdo->query($query);
+        $suma_kosztow_rownomiernych = 0;
+        foreach ($select as $row) {
+            $suma_kosztow_rownomiernych = $suma_kosztow_rownomiernych + $row["r_kwota"] * $row["r_cz"];
+        }
+        $suma_kosztow_rownomiernych = $suma_kosztow_rownomiernych - $wszystkieCzynszeL;
+
+        $planowana_cena_rownomiernego = $suma_kosztow_rownomiernych / $liczba_mieszkan / 12;
+
+        return $planowana_cena_rownomiernego;
+    }
+
+    public function pobierzPlanowanaCeneZaMetr() {
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT DISTINCT id, typ
+        From budzety
+        Where typ = 'planowany' AND idWspolnoty='".$idWspolnoty."'";
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $idBudzetu = $row["id"];
+        }
+
+        $idWspolnoty=$_SESSION['idWspolnoty'];
+        $query="SELECT SUM(m.powierzchnia) as suma_pow
+        From mieszkania AS m
+        LEFT JOIN `budynki` as b
+        ON m.idBudynku = b.id
+        LEFT JOIN `wspolnoty_mieszkaniowe` as wm
+        ON b.idWspolnoty = wm.id
+        WHERE idWspolnoty='".$idWspolnoty."'
+        GROUP BY wm.id";
+        $select=$this->pdo->query($query);
+        $suma_pow = 0;
+        foreach ($select as $row) {
+            $suma_pow = $row["suma_pow"];
+        }
+
+        $query="SELECT DISTINCT a.id, a.idKategorii, a.czestotliwoscRoczna as r_cz, a.kwota as r_kwota, k.podzialkosztow
+        From plan_wydatku AS a, kategorie AS k
+        Where a.idBudzetu = '".$idBudzetu."' AND k.podzialkosztow = 'metrazowy'";
+        $select=$this->pdo->query($query);
+        $suma_kosztow_metrazowych = 0;
+        foreach ($select as $row) {
+            $suma_kosztow_metrazowych = $suma_kosztow_metrazowych + $row["r_kwota"] * $row["r_cz"];
+        }
+        $planowana_cena_za_metr = $suma_kosztow_metrazowych / $suma_pow;
+
+        return $planowana_cena_za_metr;
+    }
+
 }
 ?>
