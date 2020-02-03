@@ -10,10 +10,16 @@ class AplikacjaController extends Controller{
         $view->dashboard();
     }
     public function logowanie() {
+        if($this->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=dashboard');
+        }
         $view=$this->loadView('aplikacja');
         $view->logowanie();
     }
     public function logowanieValidate() {
+        if($this->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=dashboard');
+        }
         $model=$this->loadModel('aplikacja');
         $uzytkownik=$model->logowanieValidate($_POST);
         if(isset($uzytkownik)){
@@ -25,33 +31,46 @@ class AplikacjaController extends Controller{
         }
     }
     public function zapomnialemHasla() {
+        if($this->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=dashboard');
+        }
         $view=$this->loadView('aplikacja');
         $view->zapomnialemHasla();
     }
     public function zapomnialemHaslaValidate() {
+        if($this->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=dashboard');
+        }
         $model=$this->loadModel('aplikacja');
         $pytaniePomocnicze=$model->zapomnialemHaslaValidate($_POST);
         if(isset($pytaniePomocnicze)){
             $this->redirect('?task=aplikacja&action=pytaniePomocnicze&'."pytaniePomocnicze=".$pytaniePomocnicze);
         }else{
-            $this->redirect('?task=aplikacja&action=zapomnialemHasla&error=Zły adres e-mail');
+            $this->redirect('?task=aplikacja&action=zapomnialemHasla&error=Zły login');
         } 
     }
     public function pytaniePomocnicze() {
+        if($this->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=dashboard');
+        }
         if($this->czyWczytanoPytPomocnicze()){
             $view=$this->loadView('aplikacja');
             $view->pytaniePomocnicze($_GET['pytaniePomocnicze']);
         }else{
-            $this->redirect('?task=aplikacja&action=logowanie&'."error="."Nie ma takiego użytkownika");
+            $this->redirect('?task=aplikacja&action=logowanie&'."error="."Nie ma takiego użytkoswnika");
         }
     }
     public function pytaniePomocniczeValidate() {
+        if($this->sprawdzCzyZalogowany()){
+            $this->redirect('?task=aplikacja&action=dashboard');
+        }
         $model=$this->loadModel('aplikacja');
         if($model->pytaniePomocniczeValidate($_POST)){
             $_SESSION['moznaZmienicHaslo']=true;
+            
             $this->redirect('?task=aplikacja&action=zmienHaslo');
         }else{
-            $this->redirect('?task=aplikacja&action=pytaniePomocnicze&error=Zła odpowiedź');
+            $this->redirect('?task=aplikacja&action=logowanie&error=Zła odpowiedź');
         }
     }
     public function zmienHaslo() {
@@ -68,16 +87,12 @@ class AplikacjaController extends Controller{
         if($model->zmienHasloPerform($_POST)){
             $this->redirect('?task=aplikacja&action=logowanie');
         }else{
-            //dodaj cos do GET // TODO
+            
             $this->redirect('?task=aplikacja&action=zmienHaslo&error=Nie udało się zmienić hasła');
         }
     }
 
     public function wyloguj() {
-        //zapisz dane do bazy. (email pobierz z sesji jako email zapisany w funkcji zapomniałęm hasło albo po prostu z użytkownika zapisanego w sesji jeśli jest zalogowany)
-            //postarray ma "haslo"
-
-        //zwraca bool czy udało się zapisać
 
         unset($_SESSION['uzytkownik']);
         unset($_SESSION['idWspolnoty']);

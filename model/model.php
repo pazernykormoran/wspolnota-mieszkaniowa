@@ -28,6 +28,7 @@ abstract class Model{
             require 'config/sql.php';
             $this->pdo=new PDO('mysql:host='.$host.';dbname='.$dbase, $user, $pass);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo-> query("SET NAMES 'utf8' COLLATE 'utf8_polish_ci'");
         }
         catch(DBException $e) {
             echo 'The connect can not create: ' . $e->getMessage();

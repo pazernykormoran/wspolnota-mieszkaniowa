@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Aktualny budżet</title>
+  <title>Aktualny budżet</title>
+
 </head>
 
 <body>
@@ -20,10 +21,7 @@
 
     <div class="container"  style="width: 70%; position: absolute; left: 300px;">
   
-    {foreach from=$Lokale item=foo}
-    <li>{$foo}</li>
-{/foreach}
-    <span class="d-block p-2 bg-primary text-white">Nazwa budżetu</span>
+    <span class="d-block p-2 bg-primary text-white">Zaplanowany Wydatek planu budżetowego</span>
 
 
     <div class="container" style="padding-top: 30px;">
