@@ -31,6 +31,8 @@ class BudzetView extends View{
         $budzetModel= $this->loadModel('budzet');
 
         //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
+        $budzet=$budzetModel->pobierzBudzet('planowany');
+        $this->set('budzet',$budzet);
 
         $this->render('budzet/przegladajPlanBudzetowy');
     }
@@ -39,7 +41,8 @@ class BudzetView extends View{
         $this->setNecessery();
         $budzetModel=$this->loadModel('budzet');
         
-        //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
+        $elementBudzetu=$budzetModel->pobierzSzczegolyWydatowPlanuBudzetowego($id);
+        $this->set('elementBudzetu',$elementBudzetu);
 
         $this->render('budzet/elementPlanuBudzetowego');
     }

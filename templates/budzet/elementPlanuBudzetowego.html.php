@@ -28,17 +28,17 @@
         
         <div class="col-4">
           <label class="form-label">Kategoria:</label>
-          <input class="form-control" type="text" value = "fdasd" readonly>
+          <input class="form-control" type="text" value = "{$elementBudzetu->getKategoria()->getNazwa()}" readonly>
         </div>
 
         <div class="col-4">
           <label class="form-label">Koszt:</label>
-          <input class="form-control" type="number" value = "1002" readonly>
+          <input class="form-control" type="number" value = "{$elementBudzetu->getKwota()}" readonly>
         </div>
 
         <div class="col-4">
           <label class="form-label">Częstotliwość (rocznie):</label>
-          <input class="form-control" type="text" value = "1003" readonly>
+          <input class="form-control" type="text" value = "{$elementBudzetu->getCzestotliwoscRoczna()}" readonly>
         </div>
 
       </div>
@@ -47,7 +47,7 @@
 
     <div style="padding-top: 50px;">
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label" placeholder="Podaj opis usterki">Opis usterki</label>
+        <label class="col-sm-2 col-form-label" placeholder="Podaj opis usterki">Opis</label>
         <div class="col-7">
        <textarea class="form-control" name="opis" rows="6" readonly></textarea>
         </div>

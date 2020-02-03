@@ -76,24 +76,18 @@
                       </tr>
                     </thead>
                     <tbody>
-            
-                      <tr>
-                        <th scope="row">1</th>
-                        <td><a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1"> Remont budynku</td>
-                        <td>Remonty</td>
-                        <td>212133</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>KOszenie trawy</td>
-                        <td>2131</td>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>Fundusz odtworzeniowy</td>
-                        <td>324234</td>
-                      </tr>
+                    {if isset($budzet)}
+
+                        {foreach from=$budzet->getPlanyWydatkow() item=planwydatku}
+                        <tr>
+                          <th scope="row">1</th>
+                          <td> <a href="?task=budzet&action=elementPlanuBudzetowego&idElementuPlanuBudzetowego={$planwydatku->getId()}">{$planwydatku->getNazwa()}</a> </td>
+                          <td>{$planwydatku->getKategoria()->getNazwa()}</td>
+                          <td>{$planwydatku->getKwota()}</td>
+                        </tr>
+
+                        {/foreach}
+                    {/if}
             
                     </tbody>
                   </table>
