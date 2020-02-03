@@ -11,7 +11,7 @@ class UsterkiModel extends Model{
     public function zglosUsterkePerform($postArray) {
          
 
-        if(isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
+        if(czyTworzonaUsterkaJestKompletna()) {
       
           $usterka = new Usterka(null, date("Y/m/d"),"Zgloszono",$postArray['temat'],$postArray['opis'],$postArray['adres'],$_SESSION['uzytkownik'],$_SESSION['idWspolnoty']);
           $this->dodajUsterke($usterka);
@@ -34,10 +34,7 @@ class UsterkiModel extends Model{
         $select=$this->pdo->query($query);
         foreach ($select as $row) {
             $data[]=new Adres(null, $row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"], $row["idZewnetrzne"]);
-
         }
-
-        $select->closeCursor();
 
         return $data;
     }
@@ -83,6 +80,15 @@ class UsterkiModel extends Model{
 
         }
         //zwraca usterke klasy Usterka
+    }
+
+    private function czyTworzonaUsterkaJestKompletna() {
+        if (isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }
