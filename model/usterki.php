@@ -3,26 +3,22 @@
 
 include 'model/model.php';
 include 'classes/adres.php';
+include 'classes/usterka.php';
 
 class UsterkiModel extends Model{
 
     public function zglosUsterkePerform($postArray) {
          
 
-      //  if(isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['login'] &&  $_SESSION['imie']) ){
-            //wyciagnij content z bazy
-
-          //  ($id,$date,$stanRealizacji,$temat,$opis,$budynek, $wspolnotaMieszkaniowa) 
-      //  }
-      //  else{
-
-     //   }
-
-
-        //wyciagnij id uzytkownika z sesji i zapisz usterke  
-            //postArray sa wszystkie rzeczy do zapisania w bazie usterki
-
-        //zwraca bool czy usterka została poprawnie zapisna.
+        if(isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
+      
+          $usterka = new Usterka(null, date("Y/m/d"),"Zgloszono",$postArray['temat'],$postArray['opis'],$postArray['adres'],$_SESSION['uzytkownik'],$_SESSION['idWspolnoty']);
+          $this->dodajUsterke($usterka);
+          return true;
+        }
+       else{
+            return false;
+        }
 
     }
 
@@ -45,14 +41,15 @@ class UsterkiModel extends Model{
         return $data;
     }
 
-   private function insert($data) {
-        $ins=$this->pdo->prepare('INSERT INTO articles (idUżytkownika, idBudynku, dataZgłoszenia, temat, opis,stan) VALUES (
-            :uzytkownik, :budynek, :dataZgloszenia, :opis, :stanRealizacji)');
-        $ins->bindValue(':uzytkownik', '1', PDO::PARAM_STR);
-        $ins->bindValue(':budynek', $data['uzytkownik'], PDO::PARAM_STR);
-        $ins->bindValue(':dataZgloszenia', $data['budynek'], PDO::PARAM_STR);
-        $ins->bindValue(':opis', $data['date_add'], PDO::PARAM_STR);
-        $ins->bindValue(':stanRealizacji', $data['author'], PDO::PARAM_STR);
+   private function dodajUsterke($usterka) {
+        $ins=$this->pdo->prepare('INSERT INTO usterki (idUzytkownika, idBudynku, dataZgloszenia, temat, opis, stan) VALUES (
+            :uzytkownik, :budynek, :dataZgloszenia, :opis, :temat, :stanRealizacji)');
+        $ins->bindValue(':uzytkownik',$usterka->getUzytkownik() , PDO::PARAM_INT);
+        $ins->bindValue(':budynek', $usterka->getBudynek(), PDO::PARAM_INT);
+        $ins->bindValue(':dataZgloszenia', $usterka->getDataZgloszenia(), PDO::PARAM_STR);
+        $ins->bindValue(':opis', $usterka->getOpis(), PDO::PARAM_STR);
+        $ins->bindValue(':temat', $usterka->getTemat(), PDO::PARAM_STR);
+        $ins->bindValue(':stanRealizacji', $usterka->getStanRealizacji(), PDO::PARAM_STR);
         $ins->execute();
     }
     public function pobierzUsterki() {
