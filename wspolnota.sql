@@ -149,10 +149,10 @@ CREATE TABLE `kategorie` (
 --
 
 INSERT INTO `kategorie` (`id`, `nazwa`, `podzialKosztow`) VALUES
-(1, 'Usługi stałe', 'równomierny'),
-(2, 'Zaplanowane remonty', 'metrażowy'),
-(3, 'Usterki', 'równomierny'),
-(4, 'Fundusz odtwórczy', 'metrażowy');
+(1, 'Usługi stałe', 'rownomierny'),
+(2, 'Zaplanowane remonty', 'metrazowy'),
+(3, 'Usterki', 'rownomierny'),
+(4, 'Fundusz odtwórczy', 'metrazowy');
 
 -- --------------------------------------------------------
 
