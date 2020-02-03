@@ -6,7 +6,7 @@ class UsterkiView extends View{
     public function  zglosUsterke() {
         $this->setNecessery();
         $usterkiModel= $this->loadModel('usterki');
-        $budynkiDoWyswietlenia = $usterkiModel->pobierzAdresyBudynkowWspolnoty($_SESSION['idWspolnoty'])
+        $budynkiDoWyswietlenia = $usterkiModel->pobierzAdresyBudynkowWspolnoty($_SESSION['idWspolnoty']);
         $this->set('adresy', $budynkiDoWyswietlenia);
 
         $this->render('usterki/zglosUsterke');
@@ -14,7 +14,7 @@ class UsterkiView extends View{
     public function  przegladajUsterki() {
         $this->setNecessery();
         $usterkiModel= $this->loadModel('usterki');
-        $this->set('usterki', $usterkiModel->pobierzUsterki("1"));
+        $this->set('usterki', $usterkiModel->pobierzUsterki($_SESSION['idWspolnoty']));
         $this->render('usterki/usterki');
     }
     public function szczegolyUsterki($idUsterki) {

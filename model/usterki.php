@@ -11,7 +11,7 @@ class UsterkiModel extends Model{
     public function zglosUsterkePerform($postArray) {
          
 
-        if(czyTworzonaUsterkaJestKompletna()) {
+        if($this->czyTworzonaUsterkaJestKompletna($postArray)) {
       
           $usterka = new Usterka(null, date("Y/m/d"),"Zgloszono",$postArray['temat'],$postArray['opis'],$postArray['adres'],$_SESSION['uzytkownik'],$_SESSION['idWspolnoty']);
           $this->dodajUsterke($usterka);
@@ -55,6 +55,7 @@ class UsterkiModel extends Model{
         if(isset($_SESSION['idWspolnoty'])){
 
         }
+        $id=2;
     
         $query="SELECT u.temat,u.id, a.miejscowosc, a.nrMieszkania, a.ulica, a.kodPocztowy
         From adresy as a
@@ -65,9 +66,11 @@ class UsterkiModel extends Model{
         WHERE b.idWspolnoty = ".$id;
             
         $select=$this->pdo->query($query);
+        $data;
         foreach ($select as $row) {
             $data[]=new Usterka($row["id"],null,null,$row["temat"],null, new Budynek(null, new Adres(null,$row["kodPocztowy"],$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null), $id),null,$id );
         }
+        //TODO ODSŁUGA jeśli nie ma usterek
 
         $select->closeCursor();
 
@@ -82,7 +85,7 @@ class UsterkiModel extends Model{
         //zwraca usterke klasy Usterka
     }
 
-    private function czyTworzonaUsterkaJestKompletna() {
+    private function czyTworzonaUsterkaJestKompletna($postArray) {
         if (isset($postArray['temat'])&&isset($postArray['adres']) && isset($postArray['opis'])&&  $_SESSION['uzytkownik'] &&  $_SESSION['idWspolnoty']) {
             return true;
         }
