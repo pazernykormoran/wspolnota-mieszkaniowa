@@ -8,7 +8,7 @@ class AplikacjaView extends View{
     public function  dashboard() {
         $this->setNecessery();
         //todo wyciagnij z sesji i zsetuj informacje o użytkowniku do wyświetlania w dashboardzie TODO
-
+        //echo $_SESSION['uzytkownik'];
         //for tests:
         $budzetArray=[];
         array_push($budzetArray,new Budzet('id',1234,'typ','wspolnota',array()));

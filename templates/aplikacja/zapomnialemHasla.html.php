@@ -319,8 +319,8 @@ input[type=password]:placeholder {
 
     <!-- Login Form -->
     <form action="?task=aplikacja&action=zapomnialemHaslaValidate" method="post">
-      <h2>Zapomniałeś hasła? Podaj email lub nazwę użytkownika</h2>
-      <input type="text" id="login" class="fadeIn second" name="login/email" placeholder="Email lub nazwa użytkownika">
+      <h2>Zapomniałeś hasła? Podaj nazwę użytkownika</h2>
+      <input type="text" id="login" class="fadeIn second" name="login/email" placeholder="nazwa użytkownika">
 
       {if isset($error) && $error != ""}
           <div class="alert alert-danger">

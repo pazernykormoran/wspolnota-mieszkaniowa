@@ -7,10 +7,9 @@ class Uzytkownik{
     private $pytaniePomocnicze;
     private $odpowiedzPomocnicza;  
     private $rola;
-    private $stanKonta;
     private $wspolnotaMieszkaniowa;
 
-    function __construct($id, $login, $imie, $nazwisko, $pytaniePomocnicze,$odpowiedzPomocnicza, $rola, $stanKonta, $wspolnotaMieszkaniowa) {
+    function __construct($id, $login, $imie, $nazwisko, $pytaniePomocnicze,$odpowiedzPomocnicza, $rola,  $wspolnotaMieszkaniowa) {
         $this->id=$id;
         $this->login=$login;
         $this->imie=$imie;
@@ -18,7 +17,6 @@ class Uzytkownik{
         $this->pytaniePomocnicze=$pytaniePomocnicze;
         $this->odpowiedzPomocnicza=$odpowiedzPomocnicza;
         $this->rola=$rola;
-        $this->stanKonta=$stanKonta;
         $this->wspolnotaMieszkaniowa=$wspolnotaMieszkaniowa;
      }
 
@@ -50,9 +48,6 @@ class Uzytkownik{
         return $this->rola;
     }
 
-    public function getStanKonta(){
-        return $this->stanKonta;
-    }
 
     public function getWspolnotaMieszkaniowa(){
     return $this->wspolnotaMieszkaniowa;
