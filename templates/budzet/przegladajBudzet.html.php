@@ -87,7 +87,7 @@
                         {foreach from=$budzet->getPlanyWydatkow() item=planwydatku}
                         <tr>
                           <th scope="row">1</th>
-                          <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=1">{$planwydatku->getNazwa()}</a> </td>
+                          <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu={$planwydatku->getId()}">{$planwydatku->getNazwa()}</a> </td>
                           <td>{$planwydatku->getKategoria()->getNazwa()}</td>
                           <td>{$planwydatku->getKwota()}</td>
                         </tr>

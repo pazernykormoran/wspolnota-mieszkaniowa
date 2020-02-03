@@ -72,5 +72,16 @@ class AplikacjaController extends Controller{
             $this->redirect('?task=aplikacja&action=zmienHaslo&error=Nie udało się zmienić hasła');
         }
     }
+
+    public function wyloguj() {
+        //zapisz dane do bazy. (email pobierz z sesji jako email zapisany w funkcji zapomniałęm hasło albo po prostu z użytkownika zapisanego w sesji jeśli jest zalogowany)
+            //postarray ma "haslo"
+
+        //zwraca bool czy udało się zapisać
+
+        unset($_SESSION['uzytkownik']);
+        unset($_SESSION['idWspolnoty']);
+        $this->redirect('?task=aplikacja&action=logowanie&info=Pomyślnie wylogowano');
+    }
 }
 ?>

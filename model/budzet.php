@@ -4,6 +4,7 @@
 include 'model/model.php';
 include 'classes/budzet.php';
 include 'classes/planWydatku.php';
+include 'classes/wydatek.php';
 include 'classes/Kategoria.php';
 
 class BudzetModel extends Model{
@@ -44,17 +45,37 @@ class BudzetModel extends Model{
         //return $data;
         //zwraca obiekt Budzet;
     }
-    private function pobierzSzczegolyWydatkowBudzetu($idPlanuWydatku) {
-        
-        //zwraca tablice oboektow PlanWydatku;
+    public function pobierzSzczegolyWydatkowBudzetu($idPlanuWydatku) {
+        $query="SELECT a.id AS idPlanuWydatku ,a.idBudzetu,a.idKategorii, a.nazwa AS nazwaPlanuWydatku, a.czestotliwoscRoczna, a.kwota, k.id AS idKategorii, k.nazwa AS nazwaKategorii, k.podzialkosztow
+        From plan_wydatku AS a
+        JOIN kategorie AS k ON a.idKategorii=k.id
+        Where a.id = '".$idPlanuWydatku."'";
+        $select=$this->pdo->query($query);
+        $planWydatku;
+        foreach ($select as $row) {
+            $planWydatku=new planWydatku($row["idPlanuWydatku"],$row["czestotliwoscRoczna"],$row["kwota"],$row["nazwaPlanuWydatku"],
+            new Kategoria($row["idKategorii"],$row["podzialkosztow"],$row["nazwaKategorii"]),$this->pobierzWydatki($idPlanuWydatku));
+            //echo $row["nazwaKategorii"]; echo "<br>";
+        }   
+        return $planWydatku;
+
     }
     private function pobierzSzczegolyWydatowPlanuBudzetowego($idPlanuWydatku) {
-        
-        //zwraca tabice oboektow PlanWydatku;
+
+
     }
     private function pobierzWydatki($idPlanuWydatku) {
         
-        //zwraca tablice oboektow Wydatek;
+        $query="SELECT id ,idPlanuWydatkow , idUsterki, dataRealizacji, kwota, opis
+        From wydatki
+        Where idPlanuWydatkow = '".$idPlanuWydatku."'";
+        $select=$this->pdo->query($query);
+        $wydatki;
+        foreach ($select as $row) {
+            $wydatki[]=new Wydatek($row["id"],$row["idPlanuWydatkow"],$row["idUsterki"],$row["dataRealizacji"],$row["kwota"],$row["opis"]);
+        }  
+        //zwraca tabice oboektow PlanWydatku;
+        return $wydatki;
     }
     private function pobierzKategorie($idPlanuWydatku) {
         

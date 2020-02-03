@@ -9,7 +9,7 @@ class UsterkiController extends Controller{
     }
     public function zglosUsterkePerform() {
 
-        echo $postArray['login']
+        echo $postArray['login'];
      //   if(isset($postArray['login'])&&isset($postArray['haslo'])){
             
       //  }
