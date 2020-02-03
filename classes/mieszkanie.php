@@ -21,6 +21,7 @@ class Mieszkanie{
     }
     
     public function getAdres(){
+        //echo $this->adres->getMiejscowosc();
         return $this->adres;
     }
 

@@ -209,7 +209,7 @@ class BudzetModel extends Model{
 
     public function pobierzDaneOMieszkaniachUzytkownika($idUzytkownika) {
         
-        $query="SELECT  m.czynsz, m.numer, a.ulica, a.nrMieszkania, A.kodPocztowy
+        $query="SELECT  m.czynsz, m.numer, a.ulica, a.miejscowosc, a.nrMieszkania, a.kodPocztowy
         FROM uzytkownicy_mieszkania as u
         Left Join mieszkania as m
         on u.`idMieszkania` = m.id
@@ -220,14 +220,17 @@ class BudzetModel extends Model{
         $select=$this->pdo->query($query);
 
         foreach ($select as $row) {
-            $mieszkania[]= new Mieszkanie(null,$row["czynsz"],$row["numer"],null,null,null,null, new Adres(null,null,$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null));
+            echo "elooo";
+            echo $row["miejscowosc"];
+            $adres=new Adres(null,null,$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null);
+            $mieszkania[]= new Mieszkanie(null,$row["czynsz"],$row["numer"],null,null, $adres);
         }  
-        //zwraca tabice oboektow PlanWydatku;
+
         if (isset($mieszkania))
         {
             return $mieszkania;
         }
-        return null;
+        //return null;
 
         
     }
