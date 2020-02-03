@@ -36,26 +36,25 @@
             
                       <tr>
                         <th scope="row">1</th>
-                        <td>213</td>
-                        <td>213</td>
+                        <td>Czynsze mieszkaniowe</td>
+                        <td>{$sumaActM}</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
                         <td>Czynsze lokalowe</td>
-                        <td>2131</td>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>324234</td>
-                      </tr>
+                        <td>{$sumaActL}</td>
             
                     </tbody>
                   </table>
                   
                   <div class="form-group row" style ="float: right;">
-                    <label class="col-sm-2 col-form-label">Razem</label>
-                    <div class="col-10">
-                        <input class="form-control" type="text" value = "1000" readonly>
+                    <label class="col-sm-4 col-form-label">Wpłynęło</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" value = "{$sumaActL + $sumaActM}" readonly>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Zaplanowano</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" value = "{$wszystkieCzynszeM + $wszystkieCzynszeL}" readonly>
                     </div>
                   </div>
             </div>
@@ -105,7 +104,7 @@
                   <div class="form-group row" style ="float: right;">
                     <label class="col-sm-2 col-form-label">Razem</label>
                     <div class="col-10">
-                        <input class="form-control" type="text" value = "1000" readonly>
+                        <input class="form-control" type="text" value = "{$actWplywy}" readonly>
                     </div>
                   </div>
                   
