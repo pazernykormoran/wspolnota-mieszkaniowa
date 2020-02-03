@@ -73,7 +73,6 @@ class AplikacjaController extends Controller{
         }
     }
 
-<<<<<<< HEAD
     public function wyloguj() {
         //zapisz dane do bazy. (email pobierz z sesji jako email zapisany w funkcji zapomniałęm hasło albo po prostu z użytkownika zapisanego w sesji jeśli jest zalogowany)
             //postarray ma "haslo"
@@ -84,8 +83,6 @@ class AplikacjaController extends Controller{
         unset($_SESSION['idWspolnoty']);
         $this->redirect('?task=aplikacja&action=logowanie&info=Pomyślnie wylogowano');
     }
-=======
->>>>>>> 3836750e8de34edfcee8c8f939c3fc4e731b8955
     private function czyMoznaZmienicHaslo() {
         if((isset($_SESSION['uzytkownik'])&&isset($_SESSION['idWspolnoty'])) || isset($_SESSION['moznaZmienicHaslo'])){
             return true;
