@@ -73,7 +73,7 @@
               </div>
             </div>
             <div class="col-sm">
-              <button type="button" onclick="location.href = 'moje-zamowienia.php';" class="btn btn-secondary ">Powrót</button>
+              <button type="button" onclick="location.href = '?task=usterki&action=przegladajUsterki';" class="btn btn-secondary ">Powrót</button>
             </div>
 
 
