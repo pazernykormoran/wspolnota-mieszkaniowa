@@ -181,7 +181,10 @@ class BudzetModel extends Model{
             $wydatki[]=new Wydatek($row["id"],$row["idPlanuWydatkow"],$row["idUsterki"],$row["dataRealizacji"],$row["kwota"],$row["opis"]);
         }  
         //zwraca tabice oboektow PlanWydatku;
-        return $wydatki;
+        if(isset($wydatki)){
+            return $wydatki;
+        }
+        return null;
     }
 
     public function pobierzDaneOLokalachUzytkownika($idUzytkownika) {
@@ -220,8 +223,7 @@ class BudzetModel extends Model{
         $select=$this->pdo->query($query);
 
         foreach ($select as $row) {
-            echo "elooo";
-            echo $row["miejscowosc"];
+          
             $adres=new Adres(null,null,$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null);
             $mieszkania[]= new Mieszkanie(null,$row["czynsz"],$row["numer"],null,null, $adres);
         }  

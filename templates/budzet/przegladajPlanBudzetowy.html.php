@@ -136,7 +136,7 @@
                <tr>
                  <th scope="row">{$smarty.foreach.petla.iteration + $smarty.foreach.petla.iteration}</th>
                  <td>Mieszkanie</td>
-                 <td>{$foo->getCzynsz() * $cena_za_metr + $cena_rownomiernego}</td>
+                 <td>{$foo->getPowierzchnia() * $cena_za_metr + $cena_rownomiernego}</td>
                  <td>{$foo->getAdres()->getMiejscowosc()}</td>
                  <td>{$foo->getNumer()}</td>
                </tr>
