@@ -203,6 +203,28 @@ class BudzetModel extends Model{
         return $lokale;
     }
 
+    public function pobierzDaneOMieszkaniachUzytkownika($idUzytkownika) {
+        
+        $query="SELECT  m.czynsz, m.numer, a.ulica, a.nrMieszkania, A.kodPocztowy
+        FROM uzytkownicy_mieszkania as u
+        Left Join mieszkania as m
+        on u.`idMieszkania` = m.id
+        LEFT JOIN adresy as a
+        on a.idZewnetrzne = m.idBudynku
+        WHERE `idUzytkownika` = ".$idUzytkownika;
+
+        $select=$this->pdo->query($query);
+
+        foreach ($select as $row) {
+            $mieszkania[]= new Mieszkanie(null,$row["czynsz"],$row["numer"],null,null,null,null, new Adres(null,null,$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null));
+        }  
+        //zwraca tabice oboektow PlanWydatku;
+        return $mieszkania;
+    }
+
+    
+
+
     private function pobierzKategorie($idPlanuWydatku) {
         
         //zwraca tablice obiektow Kategoria;

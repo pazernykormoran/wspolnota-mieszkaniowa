@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-03 05:59:51
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 06:58:28
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\budzet\przegladajBudzet.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e37a8c74f0470_35550700',
+  'unifunc' => 'content_5e37b6844c4448_36648448',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2abad82d86a77f62884bf150b6ad3b1069cc8ea4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\budzet\\przegladajBudzet.html.php',
-      1 => 1580705989,
+      1 => 1580709505,
       2 => 'file',
     ),
   ),
@@ -23,16 +23,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e37a8c74f0470_35550700 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e37b6844c4448_36648448 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
- <html lang="pl">
-
- <head>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <meta charset="utf-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <title>Aktualny budżet</title>
- </head>
+<html lang="pl">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Aktualny budżet</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
 
  <body>
 
@@ -118,12 +118,16 @@ function content_5e37a8c74f0470_35550700 (Smarty_Internal_Template $_smarty_tpl)
  -->
 
                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['budzet']->value->getPlanyWydatkow(), 'planwydatku');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['budzet']->value->getPlanyWydatkow(), 'planwydatku', false, NULL, 'wyp', array (
+  'iteration' => true,
+));
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['planwydatku']->value) {
+$_smarty_tpl->tpl_vars['__smarty_foreach_wyp']->value['iteration']++;
 ?>
                <tr>
-                 <th scope="row">1</th>
+                 <th scope="row"><?php echo (isset($_smarty_tpl->tpl_vars['__smarty_foreach_wyp']->value['iteration']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_wyp']->value['iteration'] : null);?>
+</th>
                  <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu=<?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['planwydatku']->value->getNazwa();?>
 </a> </td>
@@ -199,13 +203,17 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
              </thead>
              <tbody>
              <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Lokale']->value, 'foo');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Lokale']->value, 'foo', false, NULL, 'petla', array (
+  'iteration' => true,
+));
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['foo']->value) {
+$_smarty_tpl->tpl_vars['__smarty_foreach_petla']->value['iteration']++;
 ?>
  
                <tr>
-                 <th scope="row">1</th>
+                 <th scope="row"><?php echo (isset($_smarty_tpl->tpl_vars['__smarty_foreach_petla']->value['iteration']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_petla']->value['iteration'] : null);?>
+</th>
                  <td>Lokal</td>
                  <td><?php echo $_smarty_tpl->tpl_vars['foo']->value->getCzynsz();?>
 </td>
@@ -218,6 +226,31 @@ foreach ($_from as $_smarty_tpl->tpl_vars['foo']->value) {
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+               
+
+
+               <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Mieszkania']->value, 'foo', false, NULL, 'petla2', array (
+));
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['foo']->value) {
+?>
+               <tr>
+                 <th scope="row"><?php echo (isset($_smarty_tpl->tpl_vars['__smarty_foreach_petla']->value['iteration']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_petla']->value['iteration'] : null)+(isset($_smarty_tpl->tpl_vars['__smarty_foreach_petla']->value['iteration']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_petla']->value['iteration'] : null);?>
+</th>
+                 <td>Mieszkanie</td>
+                 <td><?php echo $_smarty_tpl->tpl_vars['foo']->value->getCzynsz();?>
+</td>
+                 <td><?php echo $_smarty_tpl->tpl_vars['foo']->value->getAdres()->getMiejscowosc();?>
+</td>
+                 <td><?php echo $_smarty_tpl->tpl_vars['foo']->value->getNumer();?>
+</td>
+               </tr>
+               <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
              </tbody>
            </table>
 

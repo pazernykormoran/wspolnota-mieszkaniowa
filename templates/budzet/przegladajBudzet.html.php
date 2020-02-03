@@ -83,9 +83,9 @@
                <!-- tutaj wyświetlam sobie id Budżetu:
                         {$budzet->getId()} -->
 
-               {foreach from=$budzet->getPlanyWydatkow() item=planwydatku}
+               {foreach from=$budzet->getPlanyWydatkow() item=planwydatku name = wyp}
                <tr>
-                 <th scope="row">1</th>
+                 <th scope="row">{$smarty.foreach.wyp.iteration}</th>
                  <td> <a href="?task=budzet&action=elementBudzetu&idElementuBudzetu={$planwydatku->getId()}">{$planwydatku->getNazwa()}</a> </td>
                  <td>{$planwydatku->getKategoria()->getNazwa()}</td>
                  <td>{$planwydatku->getKwota()}</td>
@@ -150,16 +150,29 @@
                </tr>
              </thead>
              <tbody>
-             {foreach from=$Lokale item=foo}
+             {foreach from=$Lokale item=foo name=petla}
  
                <tr>
-                 <th scope="row">1</th>
+                 <th scope="row">{$smarty.foreach.petla.iteration}</th>
                  <td>Lokal</td>
                  <td>{$foo->getCzynsz()}</td>
                  <td>{$foo->getAdres()->getMiejscowosc()}</td>
                  <td>{$foo->getNumer()}</td>
                </tr>
                {/foreach}
+               
+
+
+               {foreach from=$Mieszkania item=foo name=petla2}
+               <tr>
+                 <th scope="row">{$smarty.foreach.petla.iteration + $smarty.foreach.petla.iteration}</th>
+                 <td>Mieszkanie</td>
+                 <td>{$foo->getCzynsz()}</td>
+                 <td>{$foo->getAdres()->getMiejscowosc()}</td>
+                 <td>{$foo->getNumer()}</td>
+               </tr>
+               {/foreach}
+
              </tbody>
            </table>
 

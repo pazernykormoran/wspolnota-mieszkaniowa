@@ -13,7 +13,7 @@ class UsterkiModel extends Model{
 
         if($this->czyTworzonaUsterkaJestKompletna($postArray)) {
       
-          $usterka = new Usterka(null, date("Y/m/d"),"Zgloszono",$postArray['temat'],$postArray['opis'],$postArray['adres'],$_SESSION['uzytkownik'],$_SESSION['idWspolnoty']);
+          $usterka = new Usterka(null, date("Y/m/d"),"Zgloszono",$postArray['temat'],$postArray['opis'],$postArray['adres'],$_SESSION['idUzytkownika'],$_SESSION['idWspolnoty']);
           $this->dodajUsterke($usterka);
           return true;
         }
@@ -51,12 +51,7 @@ class UsterkiModel extends Model{
         $ins->execute();
     }
     public function pobierzUsterki($id) {
-        //pobierz id wspolnoty z sesji 
-        if(isset($_SESSION['idWspolnoty'])){
-
-        }
-
-    
+   
         $query="SELECT u.temat,u.id, a.miejscowosc, a.nrMieszkania, a.ulica, a.kodPocztowy
         From adresy as a
         LEFT JOIN `usterki` as u

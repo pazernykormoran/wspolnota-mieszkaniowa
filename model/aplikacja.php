@@ -31,7 +31,9 @@ class AplikacjaModel extends Model{
 
         if($select->rowCount()>0){
             $_SESSION['uzytkownik']=strval( $uzytkownik->getLogin() );
+            $_SESSION['idUzytkownika']=strval( $uzytkownik->getId() );
             $_SESSION['idWspolnoty']=$uzytkownik->getWspolnotaMieszkaniowa();
+
             return true;
         }else{
             return false;

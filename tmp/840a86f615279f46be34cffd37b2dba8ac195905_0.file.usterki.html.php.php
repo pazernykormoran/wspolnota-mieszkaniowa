@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-03 05:11:15
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 06:58:36
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\usterki\usterki.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e379d63559b63_40705431',
+  'unifunc' => 'content_5e37b68cb598b1_03142919',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '840a86f615279f46be34cffd37b2dba8ac195905' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\usterki\\usterki.html.php',
-      1 => 1580700989,
+      1 => 1580706419,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e379d63559b63_40705431 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e37b68cb598b1_03142919 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
  <html lang="pl">
 
@@ -94,6 +94,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
            </tbody>
          </table>
 
+         <button type="button" onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
 
 
        </div>
