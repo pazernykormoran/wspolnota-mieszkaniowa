@@ -20,6 +20,9 @@
 
     <div class="container"  style="width: 70%; position: absolute; left: 300px;">
   
+    {foreach from=$Lokale item=foo}
+    <li>{$foo}</li>
+{/foreach}
     <span class="d-block p-2 bg-primary text-white">Nazwa budżetu</span>
 
 

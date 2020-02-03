@@ -26,6 +26,10 @@ class BudzetView extends View{
         $this->set('wszystkieCzynszeM',$wszystkieCzynszeM);
         $this->set('wszystkieCzynszeL',$wszystkieCzynszeL);
 
+        $Lokale = $budzetModel->pobierzDaneOLokalachUzytkownika($_SESSION['uzytkownik']);
+        $this->set('Lokale',$Lokale);
+
+
         $actWplywy = $budzetModel->pobierzAktualneWyplywy();
         $this->set('actWplywy',$actWplywy);
 

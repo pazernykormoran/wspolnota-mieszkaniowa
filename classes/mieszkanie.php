@@ -5,19 +5,25 @@ class Mieszkanie{
     private $numer;
     private $powierzchnia;
     private $subkonto;
+    private $adres;
 
-    function __construct($id,$czynsz,$numer,$powierzchnia,$subkonto) {
+    function __construct($id,$czynsz,$numer,$powierzchnia,$subkonto,$adres) {
         $this->id=$id;
         $this->czynsz=$czynsz;
         $this->numer=$numer;
         $this->powierzchnia=$powierzchnia;
         $this->subkonto=$subkonto;
+        $this->adres=$adres;
      }
 
      public function getId(){
         return $this->id;
     }
     
+    public function getAdres(){
+        return $this->adres;
+    }
+
     public function getCzynsz(){
         return $this->czynsz;
     }

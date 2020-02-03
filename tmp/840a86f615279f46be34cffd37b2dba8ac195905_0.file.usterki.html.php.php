@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-03 02:59:44
+/* Smarty version 3.1.34-dev-7, created on 2020-02-03 05:11:15
   from 'C:\xampp\htdocs\wspolnota-mieszkaniowa\templates\usterki\usterki.html.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e377e909bf019_05542036',
+  'unifunc' => 'content_5e379d63559b63_40705431',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '840a86f615279f46be34cffd37b2dba8ac195905' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wspolnota-mieszkaniowa\\templates\\usterki\\usterki.html.php',
-      1 => 1580694954,
+      1 => 1580700989,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/uzytkownikWspolnoty.html' => 1,
   ),
 ),false)) {
-function content_5e377e909bf019_05542036 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e379d63559b63_40705431 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <!DOCTYPE HTML>
  <html lang="pl">
 
@@ -37,7 +37,7 @@ function content_5e377e909bf019_05542036 (Smarty_Internal_Template $_smarty_tpl)
  <body>
 
    <div>
-     <?php $_smarty_tpl->_subTemplateRender('file:includes/komunikaty.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+   <?php $_smarty_tpl->_subTemplateRender('file:includes/komunikaty.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('info'=>$_smarty_tpl->tpl_vars['info']->value,'error'=>$_smarty_tpl->tpl_vars['error']->value), 0, false);
 ?>
    </div>
 

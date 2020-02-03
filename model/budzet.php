@@ -6,6 +6,10 @@ include 'classes/budzet.php';
 include 'classes/planWydatku.php';
 include 'classes/wydatek.php';
 include 'classes/Kategoria.php';
+include 'classes/Lokal.php';
+include 'classes/Mieszkanie.php';
+include 'classes/Adres.php';
+
 
 class BudzetModel extends Model{
 
@@ -179,6 +183,26 @@ class BudzetModel extends Model{
         //zwraca tabice oboektow PlanWydatku;
         return $wydatki;
     }
+
+    public function pobierzDaneOLokalachUzytkownika($idUzytkownika) {
+        
+        $query="SELECT l.id, l.czynsz, l.numer, a.ulica, a.nrMieszkania, A.kodPocztowy,a.miejscowosc
+        FROM `uzytkownicy_lokale` as u
+        Left Join lokale as l 
+        on u.`idUzytkownika` = l.id
+        LEFT JOIN adresy as a
+        on a.idZewnetrzne = l.idBudynku
+        WHERE `idUzytkownika` = ".$idUzytkownika;
+
+        $select=$this->pdo->query($query);
+
+        foreach ($select as $row) {
+            $lokale[]= new Lokal($row["id"],$row["czynsz"],$row["numer"],null,null,null,null, new Adres(null,null,$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null));
+        }  
+        //zwraca tabice oboektow PlanWydatku;
+        return $lokale;
+    }
+
     private function pobierzKategorie($idPlanuWydatku) {
         
         //zwraca tablice obiektow Kategoria;

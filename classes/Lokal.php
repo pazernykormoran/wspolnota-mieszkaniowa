@@ -7,17 +7,23 @@ class Lokal{
     private $subkonto;
     private $wynajety;
     private $zagospodarowanie;
+    private $adres;
 
-    function __construct($id,$czynsz,$numer,$powierzchnia,$subkonto,$wynajety,$zagospodarowanie) {
+    function __construct($id,$czynsz,$numer,$powierzchnia,$subkonto,$wynajety,$zagospodarowanie,$adres) {
         $this->id=$id;
         $this->czynsz=$czynsz;
         $this->numer=$numer;
         $this->powierzchnia=$powierzchnia;
         $this->wynajety=$wynajety;
         $this->zagospodarowanie=$zagospodarowanie;
+        $this->adres=$adres;
      }
 
-     public function getId(){
+     public function getAdres(){
+        return $this->adres;
+    }
+
+    public function getId(){
         return $this->id;
     }
 
