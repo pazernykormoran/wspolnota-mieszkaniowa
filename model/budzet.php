@@ -60,9 +60,18 @@ class BudzetModel extends Model{
         return $planWydatku;
 
     }
-    private function pobierzSzczegolyWydatowPlanuBudzetowego($idPlanuWydatku) {
-
-
+    public function pobierzSzczegolyWydatowPlanuBudzetowego($idPlanuWydatku) {
+        $query="SELECT a.id AS idPlanuWydatku ,a.idBudzetu,a.idKategorii, a.nazwa AS nazwaPlanuWydatku, a.czestotliwoscRoczna, a.kwota, k.id AS idKategorii, k.nazwa AS nazwaKategorii, k.podzialkosztow
+        From plan_wydatku AS a
+        JOIN kategorie AS k ON a.idKategorii=k.id
+        Where a.id = '".$idPlanuWydatku."'";
+        $select=$this->pdo->query($query);
+        $planWydatku;
+        foreach ($select as $row) {
+            $planWydatku=new planWydatku($row["idPlanuWydatku"],$row["czestotliwoscRoczna"],$row["kwota"],$row["nazwaPlanuWydatku"],
+            new Kategoria($row["idKategorii"],$row["podzialkosztow"],$row["nazwaKategorii"]),array());
+        }   
+        return $planWydatku;
     }
     private function pobierzWydatki($idPlanuWydatku) {
         
