@@ -39,5 +39,6 @@ class Mieszkanie{
     public function getSubkonto(){
         return $this->subkonto;
     }
+
 }
 ?>

@@ -63,7 +63,17 @@ class BudzetView extends View{
 
         $cena_rownomiernego = $budzetModel->pobierzPlanowanaCeneRownomiernego($wszystkieCzynszeL);
         $cena_za_metr = $budzetModel->pobierzPlanowanaCeneZaMetr();
-        $przykladowa = $cena_rownomiernego + 50 * $cena_za_metr;
+
+        $this->set('cena_rownomiernego',$cena_rownomiernego);
+        $this->set('cena_za_metr',$cena_za_metr);
+
+        $Lokale = $budzetModel->pobierzDaneOLokalachUzytkownika($_SESSION['idUzytkownika']);
+        $Mieszkania = $budzetModel->pobierzDaneOMieszkaniachUzytkownika($_SESSION['idUzytkownika']);
+        $this->set('Lokale',$Lokale);
+        $this->set('Mieszkania',$Mieszkania);
+
+
+        
         
         $this->render('budzet/przegladajPlanBudzetowy');
     }

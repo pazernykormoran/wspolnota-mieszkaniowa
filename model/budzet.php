@@ -200,7 +200,11 @@ class BudzetModel extends Model{
             $lokale[]= new Lokal($row["id"],$row["czynsz"],$row["numer"],null,null,null,null, new Adres(null,null,$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null));
         }  
         //zwraca tabice oboektow PlanWydatku;
-        return $lokale;
+        if (isset($lokale))
+        {
+            return $lokale;
+        }
+        return null;
     }
 
     public function pobierzDaneOMieszkaniachUzytkownika($idUzytkownika) {
@@ -219,7 +223,13 @@ class BudzetModel extends Model{
             $mieszkania[]= new Mieszkanie(null,$row["czynsz"],$row["numer"],null,null,null,null, new Adres(null,null,$row["miejscowosc"],$row["nrMieszkania"],$row["ulica"],null));
         }  
         //zwraca tabice oboektow PlanWydatku;
-        return $mieszkania;
+        if (isset($mieszkania))
+        {
+            return $mieszkania;
+        }
+        return null;
+
+        
     }
 
     
@@ -302,7 +312,7 @@ class BudzetModel extends Model{
         foreach ($select as $row) {
             $suma_kosztow_metrazowych = $suma_kosztow_metrazowych + $row["r_kwota"] * $row["r_cz"];
         }
-        $planowana_cena_za_metr = $suma_kosztow_metrazowych / $suma_pow;
+        $planowana_cena_za_metr = $suma_kosztow_metrazowych / $suma_pow / 12;
 
         return $planowana_cena_za_metr;
     }

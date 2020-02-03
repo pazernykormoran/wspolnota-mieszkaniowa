@@ -103,12 +103,53 @@
         <div style=" position: absolute; right: 100px;">
       
 
-          <div class="form-group row">
-            <label class="col-4 col-form-label">Twój czynsz</label>
-            <div class="col-8">
-                <input class="form-control" type="number" value = "1000" readonly>
-            </div>
-          </div>
+        <div class="container" style="padding-top: 50px">
+       <h2>Czynsze</h2>
+
+       <div class="col">
+         <div>
+           <table class="table table-striped">
+             <thead>
+               <tr>
+                 <th scope="col">Numer</th>
+                 <th scope="col">Typ</th>
+                 <th scope="col">Czynsz</th>
+                 <th scope="col">Adres</th>
+                 <th scope="col">Numer lokalu</th>
+               </tr>
+             </thead>
+             <tbody>
+             {foreach from=$Lokale item=foo name=petla}
+ 
+               <tr>
+                 <th scope="row">{$smarty.foreach.petla.iteration}</th>
+                 <td>Lokal</td>
+                 <td>{$foo->getCzynsz()}</td>
+                 <td>{$foo->getAdres()->getMiejscowosc()}</td>
+                 <td>{$foo->getNumer()}</td>
+               </tr>
+               {/foreach}
+               
+
+
+               {foreach from=$Mieszkania item=foo name=petla2}
+               <tr>
+                 <th scope="row">{$smarty.foreach.petla.iteration + $smarty.foreach.petla.iteration}</th>
+                 <td>Mieszkanie</td>
+                 <td>{$foo->getCzynsz() * $cena_za_metr + $cena_rownomiernego}</td>
+                 <td>{$foo->getAdres()->getMiejscowosc()}</td>
+                 <td>{$foo->getNumer()}</td>
+               </tr>
+               {/foreach}
+
+             </tbody>
+           </table>
+
+
+
+         </div>
+       </div>
+     </div>
       
           <div style="padding-top: 30px;">
           <button type="button"  onclick="location.href = '?task=aplikacja&action=dashboard';" class="btn btn-secondary ">Powrót</button>
