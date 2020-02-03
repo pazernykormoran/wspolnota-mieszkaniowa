@@ -46,8 +46,20 @@ class BudzetView extends View{
 
         //todo wywołaj niezbedne funkcje modelu oraz zsetuj dane. 
         $budzet=$budzetModel->pobierzBudzet('planowany');
+        $suma_wydatkow = 0;
+        foreach ($budzet->getPlanyWydatkow() as $planwydatku) {
+            $suma_wydatkow = $suma_wydatkow + $planwydatku->getKwota() * $planwydatku->getCzestotliwoscRoczna();
+        }
         $this->set('budzet',$budzet);
+        $this->set('suma_wydatkow',$suma_wydatkow);
 
+        $wszystkieCzynszeL = $budzetModel->pobierzWszystkieDochodyZLokali();
+        $this->set('wszystkieCzynszeL',$wszystkieCzynszeL);
+
+        $cena_rownomiernego = $budzetModel->pobierzPlanowanaCeneRownomiernego($wszystkieCzynszeL);
+        $cena_za_metr = $budzetModel->pobierzPlanowanaCeneZaMetr();
+        $przykladowa = $cena_rownomiernego + 50 * $cena_za_metr;
+        
         $this->render('budzet/przegladajPlanBudzetowy');
     }
 
